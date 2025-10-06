@@ -279,58 +279,6 @@ with lib; {
     };
 
     #########################
-    ## Office
-    # The desktop stuffs that you usualy don't want in a vm
-    office = {
-      browser = {
-        firefox = {
-          enable = mkEnableOption ''
-            Toggle the module
-          '';
-          i2p.enable = mkEnableOption ''
-            Enable firefox profile for i2p browsing.
-          '';
-        };
-        searxng = {
-          enable = mkEnableOption ''
-            Toggle searx local search engine.
-          '';
-        };
-      };
-      chat = {
-        enable = mkEnableOption ''
-          Toggle signal, element, mails...
-        '';
-      };
-      write.enable = mkEnableOption ''
-        Enable libre/open office sute
-      '';
-      printers.enable = mkEnableOption ''
-        Enable printers and scanners
-      '';
-      draw.enable = mkEnableOption ''
-        Enable printers and scanners
-      '';
-      video-editing.enable = mkEnableOption ''
-        Enable printers and scanners
-      '';
-      stream.enable = mkEnableOption ''
-        Toggle streaming module
-      '';
-      gaming.enable = mkEnableOption ''
-        Enable some emulators
-      '';
-      yubikey.enable = mkEnableOption ''
-        Toggle the module
-      '';
-      android = {
-        enable = mkEnableOption ''
-          Android tooling
-        '';
-      };
-    };
-
-    #########################
     ## DeFi
     # Always fun to run a node for the community
     finance = {

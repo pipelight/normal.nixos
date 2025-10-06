@@ -1,19 +1,23 @@
 # normal.nixos
 
-<img src="./public/images/normal.nixos.png" width="500px"/>
-
 A set of **nixos modules** which provide trivial configuration
 for desktop.
 
-Still for **paranoids** and **hypocondriacs**.
+Still for **paranoids** and **hypochondriacs**.
+
+<img src="./public/images/normal.nixos.png" width="500px"/>
 
 ## Motivations
 
-This project aims to provide a well-documented NixOs base configuration with:
+This project aims to provide a resonable NixOs base configuration
+for desktops with:
 
-- **keyboard first** apps (qwerty, colemak-dh).
+- Arkenfox - A Firefox with security features.
+- Searxng - A local search engine aggregator without metadata.
 
-It is devided in **modules** that can be cherry picked or copy/pasted and
+And **keyboard first** apps (qwerty, colemak-dh).
+
+It is divided in **modules** that can be cherry picked or copy/pasted and
 modified at your will.
 
 ## Configuration directory architecture
@@ -27,7 +31,7 @@ consistent file tree.
 Setting up a user is sufficient to get you up and running on a fresh nixos
 installation.
 
-Enable the software you whish to use via the module options and you are done.
+Enable the software you wish to use via the module options, and you are done.
 Refer to `default.nix` for the list of all available options.
 
 ```nix
@@ -98,12 +102,8 @@ Password manager:
 ### Desktop environments
 
 - Gnome vanilla.
-
 - Hyprland, Eww, Dunst
-
 - Niri (+Mudras), Waybar, Dunst
-
-<img src="hyprshot.png" width="1080"/>
 
 ### Per layout configurations.
 

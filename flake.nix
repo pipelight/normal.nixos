@@ -1,5 +1,5 @@
 {
-  description = "crocuda.nixos - NixOS configuration modules for paranoids and hypocondriacs";
+  description = "normal.nixos - NixOS configuration modules for desktops (and paranoids and hypochondriacs)";
 
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
