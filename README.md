@@ -1,7 +1,10 @@
 # normal.nixos
 
+<img src="./public/images/wojack.png" width="300px"/>
+
 A set of **nixos modules** which provide trivial configuration
 for desktop.
+
 Still for **paranoids** and **hypocondriacs**.
 
 ## Motivations
