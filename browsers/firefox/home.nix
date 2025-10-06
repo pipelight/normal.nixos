@@ -7,7 +7,7 @@
   ...
 }:
 with lib;
-  mkIf cfg.office.browser.firefox.enable {
+  mkIf cfg.browser.firefox.enable {
     home.file = {
       # ".config/keepassxc/keepassxc.ini".source = dotfiles/keepassxc/keepassxc.ini;
 
@@ -113,6 +113,7 @@ with lib;
               definedAliases = ["@nixp"];
             };
 
+            # Nixos resources
             "My NixOS" = {
               urls = [{template = "https://mynixos.com/search?q={searchTerms}";}];
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
@@ -125,6 +126,7 @@ with lib;
               definedAliases = ["@nixw"];
             };
 
+            # Rust Doc
             "Docs.rs" = {
               urls = [{template = "http://docs.rs/releases/search?query={searchTerms}";}];
               icon = "https://docs.rs/favicon.ico";
@@ -135,7 +137,7 @@ with lib;
             # Common engines
             "wikipedia".metaData.alias = "@wiki";
 
-            # Torrent
+            # Anime torrent
             "Nyaa" = {
               urls = [{template = "https://nyaa.si/?q={searchTerms}";}];
               icon = "https://nyaa.si/static/favicon.png";

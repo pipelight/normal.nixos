@@ -6,7 +6,7 @@
   inputs,
   ...
 }: let
-  cfg = config.crocuda;
+  cfg = config.normal;
   niri-latest = pkgs.callPackage ./niri.latest.nix {};
 in
   with lib;

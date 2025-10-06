@@ -1,0 +1,86 @@
+# https://github.com/caksoylar/keymap-drawer/
+layout:
+  qmk_keyboard: bastardkb/tbkmini/blackpill
+  layout_name: LAYOUT_split_3x6_3
+layers:
+  Niri:
+    # Rows
+    - [
+        { h: Esc, t: Quit },
+        Null,
+        Null,
+        { h: F, t: Focus },
+        Null,
+        { h: B, t: FullScreen },
+        Null,
+        Null,
+        Null,
+        Null,
+        { h: Q, t: Close },
+        { h: Enter, t: Quit },
+      ]
+    - [
+        { h: Shift, t: Resize },
+        Null,
+        Null,
+        Null,
+        Null,
+        G,
+        { h: N, t: Left },
+        { h: E, t: Down },
+        { h: I, t: Up },
+        { h: O, t: Right },
+        Shift,
+      ]
+    - [T, X, C, D, V, Z, K, H, ",", ".", "/", Enter]
+
+    # Thumb L
+    - Null
+    - Null
+    - Super
+    # Thumb R
+    - Alt
+    - Space
+    - Null
+
+  Niri submap:
+    # Rows
+    - [
+        { h: Esc, t: Quit },
+        Null,
+        Null,
+        { h: F, t: Focus },
+        Null,
+        Null,
+        Null,
+        Null,
+        Null,
+        Null,
+        Null,
+        { h: Enter, t: Quit },
+      ]
+    - [
+        { h: Shift, t: Resize },
+        Null,
+        Null,
+        Null,
+        OView,
+        Null,
+        Left,
+        Down,
+        Up,
+        Right,
+        Null,
+        { h: Shift, t: Resize },
+      ]
+    - [Null, Null, Null, Null, Null, Null, Null, Null, Null, Null, Null, Enter]
+
+    # Thumb L
+    - Null
+    - { h: Ctrl, t: Grab }
+    - Super
+
+    # Thumb R
+    - Null
+    - { h: Space, t: Menu }
+    - { h: MO(1), t: Workspace }

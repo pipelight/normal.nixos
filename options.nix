@@ -135,5 +135,61 @@ in
           '';
         };
       };
+
+      #########################
+      ## Office
+      # The desktop stuffs that you usualy don't want in a vm
+      browser = {
+        firefox = {
+          enable = mkEnableOption ''
+            Toggle the module
+          '';
+          i2p.enable = mkEnableOption ''
+            Enable firefox profile for i2p browsing.
+          '';
+        };
+        searxng = {
+          enable = mkEnableOption ''
+            Toggle searx local search engine.
+          '';
+        };
+      };
+
+      chat = {
+        enable = mkEnableOption ''
+          Toggle signal, element, mails...
+        '';
+      };
+
+      office = {
+        write.enable = mkEnableOption ''
+          Enable libre/open office sute
+        '';
+        printers.enable = mkEnableOption ''
+          Enable printers and scanners
+        '';
+        draw.enable = mkEnableOption ''
+          Enable Gimp and Inkscape
+        '';
+        video-editing.enable = mkEnableOption ''
+          Enable video editors
+        '';
+        stream.enable = mkEnableOption ''
+          Toggle streaming module
+        '';
+        gaming.enable = mkEnableOption ''
+          Enable some emulators
+        '';
+      };
+
+      android = {
+        enable = mkEnableOption ''
+          Android tooling
+        '';
+      };
+
+      yubikey.enable = mkEnableOption ''
+        Toggle the module
+      '';
     };
   }

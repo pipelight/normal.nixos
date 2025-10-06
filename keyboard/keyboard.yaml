@@ -1,0 +1,60 @@
+# https://github.com/caksoylar/keymap-drawer/
+layout:
+  qmk_keyboard: bastardkb/tbkmini/blackpill
+  layout_name: LAYOUT_split_3x6_3
+layers:
+  Base:
+    # Rows
+    - [Esc, Q, W, F, P, B, J, L, U, Y, { t: ;, h: ":" }, BSpace]
+    - [Shift, A, R, S, T, G, M, N, E, I, O, Shift]
+    - [
+        T,
+        X,
+        C,
+        D,
+        V,
+        Z,
+        K,
+        H,
+        { t: ",", h: "<" },
+        { t: ".", h: ">" },
+        { t: "/", h: "?" },
+        Enter,
+      ]
+
+    # Thumb L
+    - MO(2)
+    - Ctrl
+    - Super
+    # Thumb R
+    - Alt
+    - Space
+    - MO(1)
+
+  MO(1) Numbers and Arrows:
+    # Rows
+    - [{ t: Quit, h: Esc }, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, Null]
+    - [Shift, A, R, S, T, G, M, N, E, I, O, Shift]
+    - [T, X, C, D, V, Z, K, H, ",", ".", "/", Enter]
+    # Thumb L
+    - Null
+    - Null
+    - Super
+    # Thumb R
+    - Null
+    - Null
+    - Null
+
+  MO(2) Symbols:
+    # Rows
+    - [{ t: Quit, h: Esc }, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, Null]
+    - [Shift, A, R, S, T, G, M, N, E, I, O, Shift]
+    - [T, X, C, D, V, Z, K, H, ",", ".", "/", Enter]
+    # Thumb L
+    - Null
+    - Null
+    - Super
+    # Thumb R
+    - Alt
+    - Space
+    - Null

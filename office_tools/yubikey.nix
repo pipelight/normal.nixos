@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  cfg = config.crocuda;
+  cfg = config.normal;
   kill_all_sessions = pkgs.writeShellScriptBin "kill_all_sessions" ''
     fn() {
       ${pkgs.procps}/bin/ps aux | egrep '(tty|pts)' | xargs kill -KILL

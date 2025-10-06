@@ -8,7 +8,7 @@
   lib,
   ...
 }: let
-  cfg = config.crocuda;
+  cfg = config.normal;
 in
   with lib;
     mkIf cfg.office.printers.enable {

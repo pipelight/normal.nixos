@@ -1,39 +1,47 @@
-# normal.nixos
+# normal.nixos - A banal desktop configuration.
 
-A set of **nixos modules** which provide trivial configuration
+A set of **nixos modules** which provide reasonable configuration
 for desktop.
 
 Still for **paranoids** and **hypochondriacs**.
 
 <img src="./public/images/normal.nixos.png" width="500px"/>
 
-## Motivations
+These are my public dots.
+
+I do not recommand installing
+as everything is largely opinionated
+and still moving.
+
+## Modules
+
+No complicated dependencies here.
+
+You may **copy files** right onto your own configuration
+and adjust to your needs.
+
+### Safer browsing
 
 This project aims to provide a reasonable NixOs base configuration
 for desktops with:
 
-Safer browsing:
-
-- Firefox - A custom firefox with security features (+ i2p profile).
+- Firefox - A custom firefox with security features.
+  - Tridactil (keyboard navigation)
+  - (+ i2p profile)
 - Searxng - A local search engine aggregator without metadata.
 
-Password and Keys:
+### Password and Keys management
 
-- KeepassXC (custom security centric layout)
+- KeepassXC (+ custom security centric layout)
 
-Fast WM:
+### Keyboard centric
 
-- Niri
+With a keyboard centric workflow under **Colemak-DH**.
+Mouse support but no mouse needed.
 
-And **keyboard first** apps (qwerty, colemak-dh).
-
-You can easily cherry-pick or copy/paste and modules of your choice.
-
-## Configuration directory architecture
-
-This flake makes a heavy use of [home-merger](https://github.com/pipelight/nixos-utils) to
-keep config files in separate dotfiles in their original formats, and keep a
-consistent file tree.
+- Window manager: Niri (+ Mudras)
+- Shell: Fish (+ vim keybindings)
+- Text editor: Nvim (NvChad)
 
 ## Installation and Usage (Flake)
 
@@ -93,38 +101,18 @@ See `option.nix` for available options.
 ```
 
 ```sh
-nixos-rebuild switch
+nixos-rebuild switch \
+  --log-format multiline-with-logs \
+  --show-trace
 ```
 
-## What is inside ?
+## Screenshots
 
-### Browsing and Search engines
+### Niri - Window manager
 
-Internet navigation:
+<img src="./public/images/niri.png" height="500px" width="500px"/>
+<img src="./public/images/keyboard-niri.png" height="500px" width="500px"/>
 
-- firefox security enhanced: with an hardened version of arkenfox
-- secure dns: with bind9 dns over https
-- search engine: searxng search engine configuration.
+### Tbk-mini - Keyboard map
 
-Linux ipv6 privacy features enabled.
-
-### Passwords and keys
-
-Password manager:
-
-- KeepassXC (custom security centric layout)
-
-### Desktop environments
-
-- Gnome vanilla.
-- Hyprland, Eww, Dunst
-- Niri (+Mudras), Waybar, Dunst
-
-### Per layout configurations.
-
-Every command-line tool that has vim specific bindings has been customized to be usable with:
-
-- Qwerty
-- Azerty
-  and
-- Colemak-dh
+<img src="./public/images/keyboard.png" height="500px" width="500px"/>

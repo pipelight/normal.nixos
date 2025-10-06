@@ -9,15 +9,18 @@
   pkgs-deprecated,
   ...
 }: let
-  cfg = config.crocuda;
+  cfg = config.normal;
   umport = {
     paths = [
       ./.
     ];
     exclude = [
+      # Testing dir
+      ./templates
+
       ./flake.nix
       ./default.nix
-      ./lib
+      ./window_managers/niri/niri.latest.nix
     ];
   };
 in {
