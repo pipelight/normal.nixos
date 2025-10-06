@@ -1,4 +1,4 @@
-# normal.nixos - A banal desktop configuration.
+# normal.nixos - A banal desktop config.
 
 A set of **nixos modules** which provide reasonable configuration
 for desktop.
@@ -20,7 +20,7 @@ No complicated dependencies here.
 You may **copy files** right onto your own configuration
 and adjust to your needs.
 
-### Safer browsing
+### Safer browsing.
 
 This project aims to provide a reasonable NixOs base configuration
 for desktops with:
@@ -30,18 +30,20 @@ for desktops with:
   - (+ i2p profile)
 - Searxng - A local search engine aggregator without metadata.
 
-### Password and Keys management
+### Password and Keys management.
 
 - KeepassXC (+ custom security centric layout)
 
-### Keyboard centric
+### Keyboard centric workflow.
 
 With a keyboard centric workflow under **Colemak-DH**.
 Mouse support but no mouse needed.
 
-- Window manager: Niri (+ Mudras)
+- Window manager: Niri (+ Mudras, Waybar)
 - Shell: Fish (+ vim keybindings)
 - Text editor: Nvim (NvChad)
+
+Themes: **Doomchad** and **Github dark dimmed**.
 
 ## Installation and Usage (Flake)
 
