@@ -34,12 +34,16 @@ for desktops with:
 
 - KeepassXC (+ custom security centric layout)
 
-### Keyboard centric workflow.
+### Keyboard centric workflow (3x6+3).
 
 With a keyboard centric workflow under **Colemak-DH**.
-Mouse support but no mouse needed.
+_Mouse support but no mouse needed._
 
 - Window manager: Niri (+ Mudras, Waybar)
+
+<img src="./public/images/niri.png" height="500px" width="1000px"/>
+<img src="./public/images/niri-bindings.svg" height="800px" width="800px"/>
+
 - Shell: Fish (+ vim keybindings)
 - Text editor: Nvim (NvChad)
 
@@ -84,7 +88,7 @@ See `option.nix` for available options.
   inputs,
   ...
 }: {
-  services.normal = {
+  normal = {
     users = ["anon"];
 
     keyboard.layout = "colemak-dh";
@@ -101,25 +105,3 @@ See `option.nix` for available options.
   };
 }
 ```
-
-```sh
-nixos-rebuild switch \
-  --log-format multiline-with-logs \
-  --show-trace
-```
-
-## Keyboard bindings
-
-### Window manager(Niri)
-
-<img src="./public/images/niri.png" height="500px" width="1000px"/>
-
-<img src="./public/images/niri-bindings.svg" height="800px" width="800px"/>
-
-## Todo
-
-### Keyboard (3x6+3)
-
-<!-- <img src="./public/images/keyboard-bindings.svg" height="800px" width="800px"/> -->
-
-### Text editor(Nvim)
