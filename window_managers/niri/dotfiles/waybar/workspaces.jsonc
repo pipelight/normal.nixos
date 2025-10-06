@@ -1,0 +1,20 @@
+// -*- mode: jsonc -*-
+{
+    "reload_style_on_change": true,
+
+    "layer": "overlay",
+    "exclusive": false,
+
+    "position": "left",
+    "height": 200,
+    // "width": 30, // Waybar width
+    "spacing": 0, // Gaps between modules (4px)
+    "margin-left": 80,
+    // Choose the order of the modules
+    "modules-center": [
+        "niri/workspaces"
+    ],
+    "niri/workspaces": {
+      "format": ""
+    }
+}

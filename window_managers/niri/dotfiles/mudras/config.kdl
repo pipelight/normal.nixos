@@ -1,0 +1,231 @@
+////////////////////////////////
+// Common applications
+Super+Enter {
+  @press {
+    - "kitty -e fish"
+  }
+}
+Super+Space{
+  @press {
+    - "yofi"
+  }
+}
+Super+u {
+  @press {
+    - "kitty -e fish"
+  }
+}
+Super+q {
+  @press {
+    - r#"niri msg action "close-window""#
+  }
+}
+Super+t {
+  @press {
+    - r#"niri msg action "toggle-overview""#
+  }
+}
+
+// Common utils
+brightness_up {
+  @press repeat=true { 
+    - "light -A 10"
+  }
+}
+brightness_down {
+  @press repeat=true { 
+    - "light -U 10"
+  }
+}
+// Submap
+Super {
+  @release {
+    // enter a submap
+    - r#"ln -sf /home/anon/.config/niri/manageable.kdl /home/anon/.config/niri/submap.kdl"#
+    - r#"niri msg action load-config-file"#
+    - r#"niri msg action "open-overview""#
+    @enter "window_manager"
+  }
+}
+
+////////////////////////////////
+// Focus
+Super+f {
+  @press {
+    - r#"niri msg action "center-column""#
+  }
+}
+Super+m {
+  @press {
+    - r#"niri msg action "focus-column-left""#
+  }
+}
+Super+n { 
+  @press {
+    - r#"niri msg action "focus-window-down""#; 
+  }
+} 
+Super+e { 
+  @press {
+    - r#"niri msg action "focus-window-up""#; 
+  }
+} 
+Super+i {
+  @press {
+    - r#"niri msg action "focus-column-right""#
+  }
+}
+
+////////////////////////////////
+// Submap definition
+@submap name="window_manager" {
+  ////////////////////////////////
+  // Common applications
+  Super+Enter {
+    @press {
+      - "kitty -e fish"
+    }
+  }
+  Super+Space{
+    @press {
+      - "yofi"
+    }
+  }
+  Super+q {
+    @press {
+      - r#"niri msg action "close-window""#
+    }
+  }
+  Super+t {
+    @press {
+      - r#"niri msg action "toggle-overview""#
+    }
+  }
+  // Exit the submap
+  Super { 
+    @release {
+      - r#"ln -sf ~/.config/niri/main.kdl ~/.config/niri/submap.kdl"#
+      - r#"niri msg action load-config-file"#
+      - r#"niri msg action "close-overview""#
+      @exit
+    }
+  }
+  Escape {
+    @press {
+      - r#"ln -sf ~/.config/niri/main.kdl ~/.config/niri/submap.kdl"#
+      - r#"niri msg action load-config-file"#
+      - r#"niri msg action "close-overview""#
+      @exit
+    }
+  }
+
+  // Focus
+  Super+f {
+    @press {
+      - r#"niri msg action "center-column""#
+    }
+  }
+  f {
+    @press {
+      - r#"niri msg action "center-column""#
+    }
+  }
+  m {
+    @press {
+      - r#"niri msg action "focus-column-left""#
+    }
+  }
+  n { 
+    @press {
+      - r#"niri msg action "focus-window-or-workspace-down""#; 
+    }
+  } 
+  e { 
+    @press {
+      - r#"niri msg action "focus-window-or-workspace-up""#; 
+    }
+  } 
+  i {
+    @press {
+      - r#"niri msg action "focus-column-right""#
+    }
+  }
+
+  // Resize
+  Shift_L+m {
+    @press {
+      - r#"niri msg action "switch-preset-window-width-back""#
+    }
+  }
+  Shift_L+n {
+    @press {
+      - r#"niri msg action "switch-preset-window-height""#
+    }
+  }
+  Shift_L+e {
+    @press {
+      - r#"niri msg action "switch-preset-window-height-back""#
+    }
+  }
+  Shift_L+i {
+    @press {
+      - r#"niri msg action "switch-preset-window-width""#
+    }
+  }
+
+  // Move
+  Ctrl+m {
+    @press {
+      - r#"niri msg action "move-column-left""#
+    }
+  }
+  Ctrl+n {
+    @press {
+      - r#"niri msg action "move-window-down-or-to-workspace-down""#
+    }
+  }
+  Ctrl+e {
+    @press {
+      - r#"niri msg action "move-window-up-or-to-workspace-up""#
+    }
+  }
+  Ctrl+i {
+    @press {
+      - r#"niri msg action "move-column-right""#
+    }
+  }
+  // Expel
+  Ctrl+Shift+m {
+    @press {
+      - r#"niri msg action "consume-or-expel-window-left""#
+    }
+  }
+  Ctrl+Shift+i {
+    @press {
+      - r#"niri msg action "expel-window-from-column""#
+    }
+  }
+
+  // Change workspace/desktop
+  Down {
+    @press {
+      - r#"niri msg action "focus-workspace-down""#
+    }
+  }
+  Up {
+    @press {
+      - r#"niri msg action "focus-workspace-up""#
+    }
+  }
+  Ctrl+Down {
+    @press {
+      - r#"niri msg action "move-workspace-down""#
+    }
+  }
+  Ctrl+Up {
+    @press {
+      - r#"niri msg action "move-workspace-up""#
+    }
+  }
+}
+

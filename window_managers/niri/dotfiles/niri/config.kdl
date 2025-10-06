@@ -1,0 +1,199 @@
+prefer-no-csd
+hotkey-overlay {
+  skip-at-startup
+  hide-not-bound
+}
+
+///////////////////////////////
+// StartUp
+spawn-at-startup "gammastep" "-P" "-O" "5500" "-b" "0.8:0.8"
+spawn-at-startup "dunst"
+spawn-at-startup "swww-daemon"
+
+// Keyboard 
+spawn-at-startup "mudras" "run"
+
+// Bars
+spawn-sh-at-startup "waybar -c ~/.config/waybar/main.jsonc"
+spawn-sh-at-startup "waybar -c ~/.config/waybar/metrics.jsonc"
+spawn-sh-at-startup "waybar -c ~/.config/waybar/workspaces.jsonc"
+
+// Deprecated
+// spawn-at-startup "wlr-which-key"
+
+// Inputs
+input {
+  keyboard {
+    xkb {
+      layout "us"
+    }
+    numlock
+  }
+  touchpad {
+    tap
+  }
+}
+
+/* 
+* !Not released!
+* Per output layout
+*/
+
+// Desktop
+output "DP-2" {
+  layout {
+    // Col/Row
+    default-column-width {
+      proportion 0.3
+    }
+    preset-column-widths {
+      proportion 0.2
+      proportion 0.3
+      proportion 0.5
+      proportion 0.6
+      proportion 1.0
+    }
+    preset-window-heights {
+      proportion 0.5
+      proportion 0.7
+      proportion 1.0
+    }
+    struts {
+      top 20
+      left 100
+      right 0
+      bottom 80
+    }
+  }
+}
+// Laptop
+output "eDP-1" {
+  layout {
+    // Col/Row
+    default-column-width {
+      proportion 0.5
+    }
+    preset-column-widths {
+      proportion 0.3
+      proportion 0.5
+      proportion 0.7
+      proportion 1.0
+    }
+    preset-window-heights {
+      proportion 0.5
+      proportion 1.0
+    }
+    struts {
+      top 5
+      left 20
+      right 0
+      bottom 15
+    }
+  }
+}
+
+layout {
+  always-center-single-column
+  empty-workspace-above-first
+  background-color "transparent"
+  /* 
+  * Not released
+  */
+  // warp-mouse-to-focus
+
+  // Col/Row
+  default-column-width {
+    proportion 0.5
+  }
+  preset-column-widths {
+    proportion 0.3
+    proportion 0.5
+    proportion 0.7
+    proportion 1.0
+  }
+  preset-window-heights {
+    proportion 0.5
+    proportion 1.0
+  }
+
+  // Styling
+  gaps 20
+  border {
+    on
+  }
+  focus-ring {
+    width 0.0
+  }
+  shadow {
+    softness 30
+    spread 10
+    offset x=0 y=5
+    draw-behind-window true
+    color "#000000ff"
+  }
+
+
+  /* 
+  * Not released
+  */
+  // blur {
+  //   off
+  //   passes 3
+  //   radius 12.0
+  //   noise 0.0
+  // }
+}
+
+
+animations {
+  workspace-switch {
+    spring damping-ratio=0.9 stiffness=1000 epsilon=0.0001
+  }
+  window-open {
+    duration-ms 100
+  }
+  window-close {
+    duration-ms 100
+  }
+  window-movement {
+    duration-ms 100
+  }
+}
+// Overview
+overview {
+    zoom 1
+    workspace-shadow {
+      off
+    }
+}
+// Put swaybg inside the overview backdrop.
+layer-rule {
+    match namespace="^swww-daemon$"
+    place-within-backdrop true
+}
+
+
+// Rules
+window-rule {
+  draw-border-with-background false
+  geometry-corner-radius 4.0
+  clip-to-geometry true
+}
+window-rule {
+  match is-active=false
+  match is-focused=false
+  opacity 0.9
+}
+
+window-rule {
+  match app-id=r#"kitty"#
+}
+
+window-rule {
+  match app-id=r#"kitty"# title=r#"^nvim ~"# is-focused=true
+}
+window-rule {
+  match app-id=r#"kitty"# title=r#"^nvim ~"# is-focused=false
+}
+
+include "./submap.kdl"

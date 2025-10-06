@@ -1,0 +1,63 @@
+
+// -*- mode: jsonc -*-
+{
+    "name": "metrics",
+
+    "reload_style_on_change": true,
+
+    "layer": "overlay",
+    "exclusive": false,
+
+    "position": "bottom",
+
+    // "width": 100,
+    "spacing": 0,
+    "margin-left": 0,
+    "margin-top": 0,
+
+    "modules-left": [
+        "cpu",
+        "custom/ncpu",
+        "memory",
+        "battery"
+    ],
+    "custom/ncpu": {
+      "format": " ({})",
+      "exec": "nproc --all",
+      // "return-type": "text",
+      "interval": 3600
+    },
+    "cpu": {
+        "align": "0",
+        "justify": "left",
+        "format": "cpu: {usage}%",
+        "states": {
+          "good": 0,
+          "warning": 50,
+          "critical": 90
+        }
+    },
+    "memory": {
+        "align": "0",
+        "justify": "left",
+        "format": " ram: {}% ({used}/{total} GiB)",
+        "states": {
+          "good": 0,
+          "warning": 25,
+          "critical": 90
+        }
+    },
+    "battery": {
+        "align": "0",
+        "justify": "left",
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}%",
+        "format-full": "{capacity}%",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% "
+    }
+}
