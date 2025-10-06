@@ -1,6 +1,6 @@
 # normal.nixos
 
-<img src="./public/images/wojack.png" width="300px"/>
+<img src="./public/images/normal.nixos.png" width="300px"/>
 
 A set of **nixos modules** which provide trivial configuration
 for desktop.
