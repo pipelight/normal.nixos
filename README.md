@@ -106,13 +106,16 @@ nixos-rebuild switch \
   --show-trace
 ```
 
-## Screenshots
+## Keyboard bindings
 
-### Niri - Window manager
+### Window manager(Niri)
 
-<img src="./public/images/niri.png" height="500px" width="500px"/>
-<img src="./public/images/keyboard-niri.png" height="500px" width="500px"/>
+<img src="./public/images/niri.png" height="500px" width="100px"/>
 
-### Tbk-mini - Keyboard map
+<img src="./public/images/niri-bindings.svg" height="800px" width="800px"/>
 
-<img src="./public/images/keyboard.png" height="500px" width="500px"/>
+### Keyboard (3x6+3)
+
+<img src="./public/images/keyboard-bindings.svg" height="800px" width="800px"/>
+
+### Text editor(Nvim)

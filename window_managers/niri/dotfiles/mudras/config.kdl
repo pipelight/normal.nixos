@@ -12,7 +12,7 @@ Super+Space{
 }
 Super+u {
   @press {
-    - "kitty -e fish"
+    - "kitty -e yazi"
   }
 }
 Super+q {
@@ -20,30 +20,13 @@ Super+q {
     - r#"niri msg action "close-window""#
   }
 }
-Super+t {
-  @press {
-    - r#"niri msg action "toggle-overview""#
-  }
-}
 
-// Common utils
-brightness_up {
-  @press repeat=true { 
-    - "light -A 10"
-  }
-}
-brightness_down {
-  @press repeat=true { 
-    - "light -U 10"
-  }
-}
 // Submap
 Super {
   @release {
     // enter a submap
     - r#"ln -sf /home/anon/.config/niri/manageable.kdl /home/anon/.config/niri/submap.kdl"#
     - r#"niri msg action load-config-file"#
-    - r#"niri msg action "open-overview""#
     @enter "window_manager"
   }
 }
@@ -96,11 +79,14 @@ Super+i {
       - r#"niri msg action "close-window""#
     }
   }
-  Super+t {
+
+  // Overview
+  t {
     @press {
       - r#"niri msg action "toggle-overview""#
     }
   }
+
   // Exit the submap
   Super { 
     @release {
@@ -229,3 +215,14 @@ Super+i {
   }
 }
 
+// Common utils
+brightness_up {
+  @press repeat=true { 
+    - "light -A 10"
+  }
+}
+brightness_down {
+  @press repeat=true { 
+    - "light -U 10"
+  }
+}

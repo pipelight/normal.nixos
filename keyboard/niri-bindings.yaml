@@ -3,36 +3,43 @@ layout:
   qmk_keyboard: bastardkb/tbkmini/blackpill
   layout_name: LAYOUT_split_3x6_3
 layers:
-  Niri:
+  Niri quick motions:
     # Rows
     - [
-        { h: Esc, t: Quit },
         Null,
+        { h: Q, t: Close },
         Null,
+
         { h: F, t: Focus },
         Null,
         { h: B, t: FullScreen },
+
         Null,
         Null,
         Null,
+
         Null,
-        { h: Q, t: Close },
-        { h: Enter, t: Quit },
+        Null,
+        Null,
       ]
     - [
-        { h: Shift, t: Resize },
         Null,
         Null,
         Null,
+
         Null,
-        G,
-        { h: N, t: Left },
-        { h: E, t: Down },
-        { h: I, t: Up },
-        { h: O, t: Right },
-        Shift,
+        Null,
+        Null,
+
+        { h: M, t: Left },
+        { h: N, t: Down },
+        { h: E, t: Up },
+
+        { h: I, t: Right },
+        Null,
+        Null,
       ]
-    - [T, X, C, D, V, Z, K, H, ",", ".", "/", Enter]
+    - [Null, Null, Null, Null, Null, Null, Null, Null, Null, Null, Null, Enter]
 
     # Thumb L
     - Null
@@ -40,36 +47,42 @@ layers:
     - Super
     # Thumb R
     - Alt
-    - Space
+    - { h: Space, t: Move }
     - Null
 
-  Niri submap:
+  Niri workspace manager:
     # Rows
     - [
-        { h: Esc, t: Quit },
+        { h: Esc, t: Exit },
+        { h: Q, t: Close },
         Null,
-        Null,
+
         { h: F, t: Focus },
         Null,
         Null,
+
         Null,
         Null,
         Null,
+
         Null,
         Null,
-        { h: Enter, t: Quit },
+        { h: Enter, t: Exit },
       ]
     - [
         { h: Shift, t: Resize },
         Null,
         Null,
+
         Null,
         OView,
         Null,
-        Left,
-        Down,
-        Up,
-        Right,
+
+        { h: M, t: Left },
+        { h: N, t: Down },
+        { h: E, t: Up },
+
+        { h: I, t: Right },
         Null,
         { h: Shift, t: Resize },
       ]
@@ -78,7 +91,7 @@ layers:
     # Thumb L
     - Null
     - { h: Ctrl, t: Grab }
-    - Super
+    - { h: Super, t: Exit }
 
     # Thumb R
     - Null

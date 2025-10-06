@@ -3,6 +3,12 @@ hotkey-overlay {
   skip-at-startup
   hide-not-bound
 }
+xwayland-satellite {
+  on
+  path "xwayland-satellite"
+}
+
+screenshot-path "~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S_niri.png"
 
 ///////////////////////////////
 // StartUp
@@ -61,7 +67,7 @@ output "DP-2" {
     struts {
       top 20
       left 100
-      right 0
+      right 40
       bottom 80
     }
   }
@@ -86,7 +92,7 @@ output "eDP-1" {
     struts {
       top 5
       left 20
-      right 0
+      right 10
       bottom 15
     }
   }
@@ -161,7 +167,7 @@ animations {
 }
 // Overview
 overview {
-    zoom 1
+    zoom 0.6
     workspace-shadow {
       off
     }
