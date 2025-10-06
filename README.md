@@ -110,12 +110,14 @@ nixos-rebuild switch \
 
 ### Window manager(Niri)
 
-<img src="./public/images/niri.png" height="500px" width="100px"/>
+<img src="./public/images/niri.png" height="500px" width="1000px"/>
 
 <img src="./public/images/niri-bindings.svg" height="800px" width="800px"/>
 
+## Todo
+
 ### Keyboard (3x6+3)
 
-<img src="./public/images/keyboard-bindings.svg" height="800px" width="800px"/>
+<!-- <img src="./public/images/keyboard-bindings.svg" height="800px" width="800px"/> -->
 
 ### Text editor(Nvim)
