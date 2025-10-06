@@ -9,16 +9,25 @@ Still for **paranoids** and **hypochondriacs**.
 
 ## Motivations
 
-This project aims to provide a resonable NixOs base configuration
+This project aims to provide a reasonable NixOs base configuration
 for desktops with:
 
-- Arkenfox - A Firefox with security features.
+Safer browsing:
+
+- Firefox - A custom firefox with security features (+ i2p profile).
 - Searxng - A local search engine aggregator without metadata.
+
+Password and Keys:
+
+- KeepassXC (custom security centric layout)
+
+Fast WM:
+
+- Niri
 
 And **keyboard first** apps (qwerty, colemak-dh).
 
-It is divided in **modules** that can be cherry picked or copy/pasted and
-modified at your will.
+You can easily cherry-pick or copy/paste and modules of your choice.
 
 ## Configuration directory architecture
 
@@ -28,14 +37,37 @@ consistent file tree.
 
 ## Installation and Usage (Flake)
 
-Setting up a user is sufficient to get you up and running on a fresh nixos
-installation.
-
-Enable the software you wish to use via the module options, and you are done.
-Refer to `default.nix` for the list of all available options.
+Add the repo url to your flake inputs.
 
 ```nix
-# crocuda.nix
+# flake.nix
+inputs = {
+  normal = {
+      url = "github:pipelight/normal.nixos";
+  };
+};
+```
+
+Add the module to your system configuration.
+
+```nix
+# flake.nix
+nixosConfigurations = {
+  my_machine = pkgs.lib.nixosSystem {
+    specialArgs = {inherit inputs;};
+    modules = [
+        # Import the module and the related configuration file.
+        inputs.normal.nixosModules.default
+        ./normal.nix
+    ];
+  };
+};
+```
+
+See `option.nix` for available options.
+
+```nix
+# normal.nix
 {
   config,
   pkgs,
@@ -58,23 +90,6 @@ Refer to `default.nix` for the list of all available options.
     };
   };
 }
-```
-
-Then import the module and its configuration file from your flake.nix.
-
-```nix
-# flake.nix
-nixosConfigurations = {
-  # CrocudaVM config
-  my_machine = pkgs.lib.nixosSystem {
-    specialArgs = {inherit inputs;};
-    modules = [
-        # Import the module and the related configuration
-        inputs.normal.nixosModules.default
-        ./normal.nix
-    ];
-  };
-};
 ```
 
 ```sh
