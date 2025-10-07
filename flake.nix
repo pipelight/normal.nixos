@@ -13,7 +13,7 @@
     nixpkgs-deprecated.url = "github:nixos/nixpkgs/nixos-24.11";
 
     ###################################
-    ### normal.nixos dependencies
+    ## normal.nixos dependencies
     nixos-tidy = {
       url = "github:pipelight/nixos-tidy?ref=dev";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,7 +22,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    ###################################
     ## Browser
     # NUR - Nix User Repository
     nur.url = "github:nix-community/NUR";
@@ -36,14 +35,6 @@
       # url = "github:l4l/yofi";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # wlr-which-key = {
-    #   url = "github:pipelight/wlr-which-key?ref=dev";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    ###################################
-    # LLM
-    # ollama.url = "github:havaker/ollama-nix";
   };
 
   outputs = {
@@ -55,18 +46,55 @@
     nixpkgs-deprecated,
     ...
   } @ inputs: let
-    specialArgs = rec {
+    slib = inputs.nixos-tidy.lib;
+    specialArgs = {
+      inherit slib;
       inherit inputs;
       pkgs = import nixpkgs;
       pkgs-stable = import nixpkgs-stable;
       pkgs-unstable = import nixpkgs-unstable;
       pkgs-deprecated = import nixpkgs-deprecated;
     };
-  in rec {
-    # For internal usage
+    umport = {
+      paths = [
+        ./.
+      ];
+      exclude = [
+        # Testing dir
+        ./templates
+
+        ./flake.nix
+        ./default.nix
+
+        # package derivations
+        ./window_managers/niri/niri.latest.nix
+      ];
+    };
+  in {
     nixosModules = {
-      default = ./default.nix;
       inherit specialArgs;
+      inherit slib;
+      default = {...}: {
+        imports =
+          [
+            # Tidy
+            inputs.nixos-tidy.nixosModules.allow-unfree
+          ]
+          ++ slib.getNixModules umport;
+      };
+    };
+    homeModules = {
+      inherit specialArgs;
+      default = {...}: {
+        imports =
+          [
+            # Nur
+            inputs.nur.modules.homeManager.default
+            # Firefox
+            inputs.arkenfox.hmModules.arkenfox
+          ]
+          ++ slib.getHomeModules umport;
+      };
     };
   };
 }
