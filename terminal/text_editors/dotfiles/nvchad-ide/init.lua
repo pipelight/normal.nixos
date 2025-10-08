@@ -29,13 +29,17 @@ require("lazy").setup({
   { import = "plugins" },
 }, lazy_config)
 
+require "options"
+require "nvchad.autocmds"
+
+-- load mapping
+vim.schedule(function()
+  require "mappings"
+end)
+
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
-require "options"
-require "nvchad.autocmds"
-
-vim.schedule(function()
-  require "mappings"
-end)
+-- Gui config
+require "neovide"

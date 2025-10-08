@@ -70,13 +70,31 @@ with lib;
       # ".config/nvim/lazy-lock.json".source = dotfiles/nvchad/lazy-lock.json;
     };
 
+    programs.neovide = {
+      enable = true;
+      settings = {
+        frame = "full";
+        maximized = false;
+        vsync = true;
+        wls = false;
+        font = {
+          normal = [];
+          size = 11.0;
+        };
+      };
+    };
+
     home.packages = with pkgs;
     with lib;
       mkMerge [
         #############################
-        ## Terminal multiplexers
-        # tmux
-        # zellij
+        [
+          ## Terminal multiplexers
+          # tmux
+          # zellij
+        ]
+        #############################
+        ## Neovim lsp/formaters
         (mkIf (config.normal.editors.neovim.enable) [neovim])
         (mkIf (config.normal.editors.nvchad.enable)
           [
