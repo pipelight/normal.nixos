@@ -1,13 +1,12 @@
 {
   config,
-  cfg,
   pkgs,
   lib,
   inputs,
   ...
 }:
 with lib;
-  mkIf cfg.wm.niri.enable {
+  mkIf config.normal.wm.niri.enable {
     home.file = {
       # Keyboard
       ".config/wlr-which-key/config.yaml".source = dotfiles/wlr-which-key/config.yaml;

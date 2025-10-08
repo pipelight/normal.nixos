@@ -66,7 +66,7 @@
         ./flake.nix
         ./default.nix
 
-        # package derivations
+        # package derivations (imported by other means)
         ./window_managers/niri/niri.latest.nix
       ];
     };

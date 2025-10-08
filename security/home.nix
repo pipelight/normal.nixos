@@ -1,18 +1,21 @@
 {
   config,
-  cfg,
   pkgs,
   lib,
   inputs,
   ...
 }:
 with lib;
-  mkIf cfg.terminal.shell.utils.enable {
+  mkIf config.normal.security.utils.enable {
     home.packages = with pkgs; [
       ## Password managers
       keepassxc
+      # keys
       gnupg
+
+      # Luks - disk encryption
       cryptsetup
+
       # Nixos easy cli
       # inputs.nixos-cli.packages.${system}.default
     ];

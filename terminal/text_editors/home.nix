@@ -2,14 +2,13 @@
   config,
   cfg,
   pkgs,
-  pkgs-unstable,
   lib,
   ...
 }:
 with lib;
-  mkIf (cfg.terminal.editors.neovim.enable
-    || cfg.terminal.editors.nvchad.enable
-    || cfg.terminal.editors.nvchad-ide.enable)
+  mkIf (config.normal.editors.neovim.enable
+    || config.normal.editors.nvchad.enable
+    || config.normal.editors.nvchad-ide.enable)
   {
     ##########################
     ## Multi keyboad layout support for neovim and vim
@@ -26,20 +25,23 @@ with lib;
     # };
 
     home.sessionVariables = with lib; {
-      NVIM_APPNAME = mkMerge [
-        (mkIf (cfg.terminal.editors.nvchad-ide.enable) "nvchad-ide")
-        (mkIf (cfg.terminal.editors.nvchad.enable) "nvchad")
-        (mkIf (cfg.terminal.editors.neovim.enable) "nvim")
-        (mkDefault "nvim")
-      ];
+      NVIM_APPNAME =
+        if config.normal.editors.nvchad-ide.enable
+        then "nvchad-ide"
+        else if config.normal.editors.nvchad.enable
+        then "nvchad"
+        else if config.normal.editors.neovim.enable
+        then "nvim"
+        else "nvim";
+
       EDITOR = mkMerge [
-        (mkIf (cfg.terminal.editors.nvchad-ide.enable) "nvim -u ~/.config/nvchad/init.lua")
-        (mkIf (cfg.terminal.editors.nvchad.enable) "nvim -u ~/.config/nvchad/init.lua")
+        (mkIf (config.normal.editors.nvchad-ide.enable) "nvim -u ~/.config/nvchad/init.lua")
+        (mkIf (config.normal.editors.nvchad.enable) "nvim -u ~/.config/nvchad/init.lua")
         (mkDefault "nvim")
       ];
       MANPAGER = mkMerge [
-        (mkIf (cfg.terminal.editors.nvchad-ide.enable) "nvim -u ~/.config/nvchad/init.lua -c 'Man!' -o -")
-        (mkIf (cfg.terminal.editors.nvchad.enable) "nvim -u ~/.config/nvchad/init.lua -c 'Man!' -o -")
+        (mkIf (config.normal.editors.nvchad-ide.enable) "nvim -u ~/.config/nvchad/init.lua -c 'Man!' -o -")
+        (mkIf (config.normal.editors.nvchad.enable) "nvim -u ~/.config/nvchad/init.lua -c 'Man!' -o -")
         (mkDefault "nvim +Man!")
       ];
     };
@@ -75,15 +77,15 @@ with lib;
         ## Terminal multiplexers
         # tmux
         # zellij
-        (mkIf (cfg.terminal.editors.neovim.enable) [neovim])
-        (mkIf (cfg.terminal.editors.nvchad.enable)
+        (mkIf (config.normal.editors.neovim.enable) [neovim])
+        (mkIf (config.normal.editors.nvchad.enable)
           [
             neovim
             ## Lsp lint/formatting tools
             tree-sitter
           ])
         (
-          mkIf (cfg.terminal.editors.nvchad-ide.enable)
+          mkIf (config.normal.editors.nvchad-ide.enable)
           [
             treefmt2
             git-cliff

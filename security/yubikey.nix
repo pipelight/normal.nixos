@@ -27,7 +27,7 @@
   '';
 in
   with lib;
-    mkIf config.normal.office.yubikey.enable {
+    mkIf config.normal.security.yubikey.enable {
       boot.initrd.luks.yubikeySupport = true;
 
       services.udev.extraRules = ''
@@ -76,11 +76,4 @@ in
           ExecStart = "${kill_all_sessions}/bin/kill_all_sessions";
         };
       };
-      # systemd.services."lock_session" = {
-      #   enable = true;
-      #   description = "Kill all running sessions";
-      #   serviceConfig = {
-      #     ExecStart = "${pkgs.hyprlock}/bin/hyprlock";
-      #   };
-      # };
     }

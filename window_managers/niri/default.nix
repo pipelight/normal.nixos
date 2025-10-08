@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  pkgs-unstable,
   lib,
   inputs,
   ...
@@ -27,7 +26,6 @@ in
 
         ## Bars
         waybar
-        pkgs-unstable.quickshell
 
         ## Night light
         # redshift
@@ -38,8 +36,6 @@ in
         via
         wev
       ];
-
-      services.flatpak.enable = true;
 
       allow-unfree = [
         "via"

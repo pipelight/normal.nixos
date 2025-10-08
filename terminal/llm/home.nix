@@ -1,11 +1,11 @@
 {
-  cfg,
+  config,
   pkgs,
   lib,
   ...
 }:
 with lib;
-  mkIf cfg.terminal.llm.ollama.enable {
+  mkIf config.normal.terminal.llm.ollama.enable {
     home.file = {
       ".config/mods/mods.yml".source = dotfiles/mods/mods.yml;
     };

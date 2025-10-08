@@ -55,8 +55,6 @@
               };
               editors = {
                 nvchad-ide.enable = true;
-                nvchad.enable = true;
-                neovim.enable = true;
               };
               terminal = {
                 git.conventional.enable = true;

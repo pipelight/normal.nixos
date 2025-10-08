@@ -6,7 +6,7 @@
   ...
 }:
 with lib;
-  mkIf config.normal.office.chat.enable {
+  mkIf config.normal.chat.enable {
     home.packages = with pkgs; [
       # Mail client
       thunderbird-bin

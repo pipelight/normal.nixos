@@ -4,9 +4,7 @@
   lib,
   inputs,
   ...
-}: let
-  cfg = config.crocuda;
-in {
+}: {
   # Loosen Security for fast sudoing
   security.sudo.extraRules = [
     {
@@ -19,7 +17,10 @@ in {
       ];
     }
   ];
-  users.groups.wheel.members = cfg.users;
+
+  users.groups = {
+    wheel.members = config.users;
+  };
 
   services.dbus.implementation = "broker";
 

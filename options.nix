@@ -173,14 +173,21 @@ in
         '';
       };
 
-      android = {
-        enable = mkEnableOption ''
-          Android tooling
+      security = {
+        android.enable = mkEnableOption ''
+          Toggle the module
         '';
+        utils.enable = mkEnableOption ''
+          Toggle the module
+        '';
+        yubikey = {
+          enable = mkEnableOption ''
+            Toggle the module
+          '';
+          hotplug.enable = mkEnableOption ''
+            Toggle the module
+          '';
+        };
       };
-
-      yubikey.enable = mkEnableOption ''
-        Toggle the module
-      '';
     };
   }

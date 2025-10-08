@@ -1,13 +1,12 @@
 {
   config,
-  cfg,
   pkgs,
   lib,
   inputs,
   ...
 }:
 with lib;
-  mkIf cfg.wm.gnome.enable {
+  mkIf config.normal.wm.gnome.enable {
     dconf.settings = {
       "org/gnome/shell" = {
         favorite-apps = [

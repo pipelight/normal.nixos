@@ -1,13 +1,11 @@
 {
   config,
-  cfg,
   pkgs,
   lib,
-  inputs,
   ...
 }:
 with lib;
-  mkIf cfg.terminal.torrent.enable {
+  mkIf config.normal.terminal.torrent.enable {
     home.packages = with pkgs; [
       # Torrenting
       # inputs.rustmission.packages.${system}.default
