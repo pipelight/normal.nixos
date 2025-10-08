@@ -1,14 +1,12 @@
 {
   config,
-  cfg,
   pkgs,
-  pkgs-unstable,
   lib,
   inputs,
   ...
 }:
 with lib;
-  mkIf cfg.terminal.git.conventional.enable {
+  mkIf config.normal.terminal.git.conventional.enable {
     home.file = {
       ".config/git/conventional_commit_message".source = ./dotfiles/conventional_commit_message;
     };
@@ -33,7 +31,7 @@ with lib;
       };
       jujutsu = {
         enable = true;
-        package = pkgs-unstable.jujutsu;
+        package = pkgs.jujutsu;
         settings = {
           git = {
             auto-local-bookmark = true;

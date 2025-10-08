@@ -1,5 +1,6 @@
 // -*- mode: jsonc -*-
 {
+    "name": "workspaces",
     "reload_style_on_change": true,
 
     "layer": "overlay",

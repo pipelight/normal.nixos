@@ -3,11 +3,10 @@
   pkgs,
   lib,
   inputs,
-  cfg,
   ...
 }:
 with lib;
-  mkIf cfg.wm.gnome.enable {
+  mkIf config.normal.wm.gnome.enable {
     home.packages = with pkgs; [
       ## Gnome minimal apps
       # image viewer

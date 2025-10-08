@@ -61,27 +61,6 @@ in
             Conventional commits helpers
           '';
         };
-        editors = {
-          neovim.enable = mkEnableOption ''
-            Install base neovim with the specified keyboard layout
-          '';
-          nvchad.enable = mkEnableOption ''
-            Install lightweight nvchad(neovim) with the specified keyboard layout
-          '';
-          nvchad-ide.enable = mkEnableOption ''
-            Install nvchad(neovim) with the specified keyboard layout
-            and complete ide extensions
-          '';
-        };
-        # Set shell with the specified keyboard layout
-        shell = {
-          utils.enable = mkEnableOption ''
-            Add command line utils for fast navigation and comfort
-          '';
-          fish.enable = mkEnableOption ''
-            Toggle the module
-          '';
-        };
         cicd.enable = mkEnableOption ''
           Enable lightweight cicd tools
         '';
@@ -102,6 +81,18 @@ in
         };
       };
 
+      editors = {
+        neovim.enable = mkEnableOption ''
+          Install base neovim with the specified keyboard layout
+        '';
+        nvchad.enable = mkEnableOption ''
+          Install lightweight nvchad(neovim) with the specified keyboard layout
+        '';
+        nvchad-ide.enable = mkEnableOption ''
+          Install nvchad(neovim) with the specified keyboard layout
+          and complete ide extensions
+        '';
+      };
       #########################
       ## Window manager
       # Heavily customed hypr

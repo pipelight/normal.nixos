@@ -5,11 +5,10 @@
   config,
   pkgs,
   lib,
-  cfg,
   ...
 }:
 with lib;
-  mkIf cfg.office.gaming.enable {
+  mkIf config.normal.office.gaming.enable {
     home.packages = with pkgs; [
       lutris
       bottles

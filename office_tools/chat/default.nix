@@ -4,13 +4,11 @@
   lib,
   inputs,
   ...
-}: let
-  cfg = config.crocuda;
-in
-  with lib;
-    mkIf cfg.office.chat.enable {
-      # Allow bottom tier apps
-      allow-unfree = [
-        "discord"
-      ];
-    }
+}:
+with lib;
+  mkIf config.normal.office.chat.enable {
+    # Allow bottom tier apps
+    allow-unfree = [
+      "discord"
+    ];
+  }

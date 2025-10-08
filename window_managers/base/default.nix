@@ -5,15 +5,10 @@
   inputs,
   ...
 }: let
-  cfg = config.crocuda;
+  cfg = config.normal;
 in
   with lib;
-    mkIf (cfg.wm.hyprland.enable
-      || cfg.wm.niri.enable) {
-      environment.sessionVariables = {
-        XDG_BACKGROUND = "$HOME/Pictures/Backgrounds/goku_minimal_orange.png";
-      };
-
+    mkIf cfg.wm.niri.enable {
       programs.light.enable = true;
       security.rtkit.enable = true;
 
@@ -29,11 +24,11 @@ in
       users.groups = {
         audio.members = cfg.users;
         video.members = cfg.users;
-        # Swhkd
+        # Mudra/Swhkd
         input.members = cfg.users;
       };
 
-      # Swhkd
+      # Mudras/Swhkd
       # No longer need to be root.
       # Members of the input group can interact with keyboard.
       systemd.tmpfiles.rules = [
@@ -65,14 +60,6 @@ in
           };
         };
         packages = with pkgs; [
-          #24.11
-          # (nerdfonts.override {
-          #   fonts = [
-          #     "JetBrainsMono"
-          #     "Noto"
-          #   ];
-          # })
-
           #25.05
           nerd-fonts.jetbrains-mono
           nerd-fonts.noto

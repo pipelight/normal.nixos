@@ -7,7 +7,7 @@
   ...
 }:
 with lib;
-  mkIf cfg.browser.firefox.enable {
+  mkIf config.normal.browser.firefox.enable {
     home.file = {
       # ".config/keepassxc/keepassxc.ini".source = dotfiles/keepassxc/keepassxc.ini;
 

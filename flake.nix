@@ -60,7 +60,7 @@
         ./.
       ];
       exclude = [
-        # Testing dir
+        # Testing directory
         ./templates
 
         ./flake.nix
@@ -73,7 +73,6 @@
   in {
     nixosModules = {
       inherit specialArgs;
-      inherit slib;
       default = {...}: {
         imports =
           [
@@ -93,6 +92,11 @@
             # Firefox
             inputs.arkenfox.hmModules.arkenfox
           ]
+          ## Clever hack :)
+          # Add same configuration options definition as
+          # So user can configure both at one time.
+          ++ [./options.nix]
+          # Every home.*.nix files
           ++ slib.getHomeModules umport;
       };
     };

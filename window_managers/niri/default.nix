@@ -11,27 +11,40 @@
 in
   with lib;
     mkIf cfg.wm.niri.enable {
-      # Do not use following option as it tweaks systemd.
+      # Do not use following option as it maybe tweaks systemd too much
+      # for our needs.
+
       # programs.niri.enable = true;
 
       environment.systemPackages = with pkgs; [
-        # niri
+        ## Window manager
         niri-latest
         xwayland-satellite
 
-        # keyboard daemon
+        ## keyboard daemons
         inputs.mudras.packages.${system}.default
+        # wlr-which-key
 
-        # Bars
+        ## Bars
         waybar
         pkgs-unstable.quickshell
 
-        # wlr-which-key
-        # Waiting for newest than 1.1.0
-        # inputs.wlr-which-key.packages.${system}.default
+        ## Night light
+        # redshift
+        gammastep
+
+        wl-clipboard
+        ## Keyboard utils
+        via
+        wev
       ];
 
-      users.groups = {
-        inputs.members = cfg.users;
-      };
+      services.flatpak.enable = true;
+
+      allow-unfree = [
+        "via"
+      ];
+      services.udev.packages = with pkgs; [
+        via
+      ];
     }

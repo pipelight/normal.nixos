@@ -1,9 +1,7 @@
 {
   config,
-  cfg,
   pkgs,
   lib,
-  inputs,
   ...
 }: let
   # https://nixos.wiki/wiki/Cursor_Themes
@@ -29,14 +27,10 @@
   '';
 in
   with lib;
-    mkIf cfg.wm.gnome.enable {
-      home.sessionVariables = {
-        XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
-      };
+    mkIf config.normal.wm.gnome.enable {
       home.packages = with pkgs; [
         ## Gtk/Qt theme compatibility
         qt6Packages.qt6ct
-
         # libsForQt5.qt5ct
         # qgnomeplatform
       ];

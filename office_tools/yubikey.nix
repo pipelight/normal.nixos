@@ -4,7 +4,6 @@
   lib,
   ...
 }: let
-  cfg = config.normal;
   kill_all_sessions = pkgs.writeShellScriptBin "kill_all_sessions" ''
     fn() {
       ${pkgs.procps}/bin/ps aux | egrep '(tty|pts)' | xargs kill -KILL
@@ -28,7 +27,7 @@
   '';
 in
   with lib;
-    mkIf cfg.office.yubikey.enable {
+    mkIf config.normal.office.yubikey.enable {
       boot.initrd.luks.yubikeySupport = true;
 
       services.udev.extraRules = ''

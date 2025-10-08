@@ -3,11 +3,10 @@
   config,
   pkgs,
   lib,
-  cfg,
   ...
 }:
 with lib;
-  mkIf cfg.office.draw.enable {
+  mkIf config.normal.office.draw.enable {
     home.packages = with pkgs; [
       # Drawing
       inkscape

@@ -1,6 +1,7 @@
 // -*- mode: jsonc -*-
 {
     "reload_style_on_change": true,
+    "name": "main",
 
     "layer": "top",
     "exclusive": false,

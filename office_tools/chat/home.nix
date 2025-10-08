@@ -3,11 +3,10 @@
   pkgs,
   lib,
   inputs,
-  cfg,
   ...
 }:
 with lib;
-  mkIf cfg.office.chat.enable {
+  mkIf config.normal.office.chat.enable {
     home.packages = with pkgs; [
       # Mail client
       thunderbird-bin
