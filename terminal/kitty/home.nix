@@ -17,7 +17,7 @@ with lib;
         enable = true;
         extraConfig = mkMerge [
           (builtins.readFile dotfiles/kitty/kitty.conf)
-          (mkIf cfg.font.enable ''
+          (mkIf config.normal.font.enable ''
             map ctrl+j change_font_size ${toString (cfg.font.size)}
             font_size ${toString (cfg.font.size)}
           '')

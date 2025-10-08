@@ -21,11 +21,13 @@ in
         pulse.enable = true;
       };
 
-      users.groups = {
-        audio.members = cfg.users;
-        video.members = cfg.users;
+      users.groups = let
+        e = config.normal.users;
+      in {
+        audio.members = e;
+        video.members = e;
         # Mudra/Swhkd
-        input.members = cfg.users;
+        input.members = e;
       };
 
       # Mudras/Swhkd

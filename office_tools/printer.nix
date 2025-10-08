@@ -43,9 +43,11 @@ with lib;
     hardware.sane.enable = true;
     hardware.sane.extraBackends = [pkgs.epkowa];
     # Epson support
-    users.groups = {
-      scanner.members = cfg.users;
-      lp.members = cfg.users;
-      cups.members = cfg.users;
+    users.groups = let
+      e = config.normal.users;
+    in {
+      scanner.members = e;
+      lp.members = e;
+      cups.members = e;
     };
   }

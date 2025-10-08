@@ -6,7 +6,7 @@
   ...
 }:
 with lib;
-  mkIf config.normal.office.chat.enable {
+  mkIf config.normal.chat.enable {
     # Allow bottom tier apps
     allow-unfree = [
       "discord"

@@ -19,7 +19,7 @@
   ];
 
   users.groups = {
-    wheel.members = config.users;
+    wheel.members = config.normal.users;
   };
 
   services.dbus.implementation = "broker";

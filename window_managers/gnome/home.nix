@@ -59,8 +59,8 @@ in
         font = {
           name = "JetBrainsMono";
           size =
-            if cfg.font.enable
-            then cfg.font.size
+            if config.normal.font.enable
+            then config.normal.font.size
             else 11;
         };
       };

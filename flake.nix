@@ -46,9 +46,8 @@
     nixpkgs-deprecated,
     ...
   } @ inputs: let
-    slib = inputs.nixos-tidy.lib;
+    tidy_lib = inputs.nixos-tidy.lib;
     specialArgs = {
-      inherit slib;
       inherit inputs;
       pkgs = import nixpkgs;
       pkgs-stable = import nixpkgs-stable;
@@ -76,10 +75,12 @@
       default = {...}: {
         imports =
           [
+            # Nur
+            inputs.nur.modules.nixos.default
             # Tidy
             inputs.nixos-tidy.nixosModules.allow-unfree
           ]
-          ++ slib.getNixModules umport;
+          ++ tidy_lib.getNixModules umport;
       };
     };
     homeModules = {
@@ -97,7 +98,7 @@
           # So user can configure both at one time.
           ++ [./options.nix]
           # Every home.*.nix files
-          ++ slib.getHomeModules umport;
+          ++ tidy_lib.getHomeModules umport;
       };
     };
   };

@@ -8,7 +8,7 @@
 with lib;
   mkIf config.normal.terminal.file_manager.enable {
     users.groups = {
-      storage.members = cfg.users;
+      storage.members = config.normal.users;
     };
 
     # Allow unfree software

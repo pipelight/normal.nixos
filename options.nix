@@ -121,10 +121,10 @@ in
           enable = mkEnableOption ''
             Toggle the gnome desktop environment.
           '';
-          flatpak.enable = mkEnableOption ''
-            Toggle flatpak and flathub package management.
-          '';
         };
+        flatpak.enable = mkEnableOption ''
+          Toggle flatpak and flathub package management.
+        '';
       };
 
       #########################

@@ -3,7 +3,6 @@
   pkgs,
   inputs,
   lib,
-  cfg,
   ...
 }:
 with lib;

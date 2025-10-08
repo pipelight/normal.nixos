@@ -42,10 +42,8 @@ with lib;
       enable = true;
     };
 
-    users.groups = let
-      users = cfg.users;
-    in {
-      bluetooth.members = users;
+    users.groups = {
+      bluetooth.members = config.normal.users;
     };
 
     # systemd.tmpfiles.rules = [
