@@ -50,7 +50,7 @@ in
       fonts = {
         fontconfig = {
           defaultFonts = rec {
-            emoji = ["Noto Color Emoli"];
+            emoji = ["Noto Color Emoji"];
             monospace = [
               "JetBrains Mono Nerd Font Mono"
               "JetBrains Mono NL Nerd Font Mono"

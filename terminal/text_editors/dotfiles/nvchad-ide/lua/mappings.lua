@@ -12,7 +12,7 @@ map("ca", "help", "vert help", {
 
 -- NvChad specific
 --
-map("n", "<leader>ch", "<cmd>NvCheatsheet<CR>", { desc = "toggle nvcheatsheet" })
+map("n", "<leader>?", "<cmd>NvCheatsheet<CR>", { desc = "toggle nvcheatsheet" })
 
 -- File
 --

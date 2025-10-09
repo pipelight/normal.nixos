@@ -74,12 +74,19 @@ with lib;
       enable = true;
       settings = {
         frame = "full";
+        fork = true;
         maximized = false;
         vsync = true;
         wls = false;
+        srgb = false;
         font = {
-          normal = [];
-          size = 11.0;
+          normal = [
+            "JetBrainsMono Nerd Font Mono"
+            "NotoSansM Nerd Font Mono"
+            "Noto Sans Mono CJK JP"
+            "Noto Color Emoji"
+          ];
+          size = 10.8;
         };
       };
     };

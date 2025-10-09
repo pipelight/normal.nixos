@@ -68,7 +68,7 @@ output "DP-2" {
       top 30
       left 100
       right 40
-      bottom 80
+      bottom 90
     }
   }
 }
@@ -197,9 +197,11 @@ window-rule {
 
 window-rule {
   match app-id=r#"kitty"# title=r#"^nvim ~"# is-focused=true
+  match app-id=r#"kitty"# title=r#"^nvid ~"# is-focused=true
 }
 window-rule {
   match app-id=r#"kitty"# title=r#"^nvim ~"# is-focused=false
+  match app-id=r#"kitty"# title=r#"^nvid ~"# is-focused=false
 }
 
 include "./submap.kdl"

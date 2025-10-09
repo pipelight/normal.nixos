@@ -3,8 +3,6 @@ local lspconfig = require "nvchad.configs.lspconfig"
 local on_init = lspconfig.on_init
 local capabilities = lspconfig.capabilities
 
-local lspconfig = require "lspconfig"
-
 -- Load nvchad lsp defaults
 -- local nvlsp = require "nvchad.configs.lspconfig"
 -- nvlsp.defaults()
@@ -48,11 +46,13 @@ local servers = {
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
+  vim.lsp.config(lsp, {
     -- on_attach = on_attach,
     on_init = on_init,
     capabilities = capabilities,
-  }
+  })
+
+  vim.lsp.enable(lsp)
 end
 
 -- lspconfig.eslint.setup {
@@ -63,17 +63,18 @@ end
 -- }
 
 -- support for vue
-lspconfig.volar.setup {
+vim.lsp.config("vue_ls", {
   cmd = { "bun", "run", "vue-language-server", "--stdio" },
   init_options = {
     vue = {
       hybridMode = true,
     },
   },
-  root_dir = lspconfig.util.root_pattern("vite.config.ts", "vitest.config.ts"),
-}
+  root_markers = { "vite.config.ts", "vitest.config.ts" },
+})
+vim.lsp.enable "vue_ls"
 
-lspconfig.ts_ls.setup {
+vim.lsp.config("ts_ls", {
   -- on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
@@ -105,33 +106,37 @@ lspconfig.ts_ls.setup {
     "typescriptreact",
     "vue",
   },
-}
+})
+vim.lsp.enable "ts_ls"
 
 -- Pug
 -- Install pug lsp from go with: go install github.com/opa-oz/pug-lsp@latest
-lspconfig.pug.setup {
+vim.lsp.config("pug", {
   -- on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
   root_dir = vim.fn.getcwd(),
-}
+})
+vim.lsp.enable "pug"
 
-lspconfig.tailwindcss.setup {
+vim.lsp.config("tailwindcss", {
   -- on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
   filetypes = { "pug", "css", "html", "vue", "postcss", "markdown", "svelte", "handlebars", "mustache", "jade", "htmx" },
-}
+})
+vim.lsp.enable "tailwindcss"
 
-lspconfig.denols.setup {
+vim.lsp.config("denols", {
   -- on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
-  root_dir = lspconfig.util.root_pattern("deno.lock", "mod.ts"),
-}
+  root_marker = { "deno.lock", "mod.ts" },
+})
+vim.lsp.enable "denols"
 
 -- support for rust
-lspconfig.rust_analyzer.setup {
+vim.lsp.config("rust_analyzer", {
   settings = {
     -- Autoreload cargo at start for better completion -> avoid typing ":CargoReload" every time
     -- https://github.com/rust-lang/rust-analyzer/blob/master/docs/user/generated_config.adoc
@@ -146,11 +151,12 @@ lspconfig.rust_analyzer.setup {
       },
     },
   },
-}
+})
+vim.lsp.enable "rust_analyzer"
 
 -- Grammar correction
 -- https://medium.com/@Erik_Krieg/free-and-open-source-grammar-correction-in-neovim-using-ltex-and-n-grams-dea9d10bc964
-require("lspconfig").ltex.setup {
+vim.lsp.config("ltex", {
   settings = {
     ltex = {
       language = "en-GB",
@@ -159,7 +165,8 @@ require("lspconfig").ltex.setup {
       },
     },
   },
-}
+})
+vim.lsp.enable "ltex"
 
 -- Diagnostic styling
 --

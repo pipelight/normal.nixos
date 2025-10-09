@@ -1,7 +1,7 @@
 -- This file  needs to have same structure as nvconfig.lua
 -- https://github.com/NvChad/NvChad/blob/v2.5/lua/nvconfig.lua
 
----@types ChadrcConfig
+-- @types ChadrcConfig
 local M = {}
 
 M.base46 = {
@@ -26,8 +26,17 @@ M.ui = {
       end,
     },
   },
+  statusline = {
+    theme = "default",
+    separator_style = "default",
+    order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cursor" },
+    modules = {
+      cursor = function()
+        local lines = vim.fn.line "$"
+        return "%#St_pos_text# " .. lines .. " l - " .. "%p %% "
+      end,
+    },
+  },
 }
-
-M.mappings = require "mappings"
 
 return M

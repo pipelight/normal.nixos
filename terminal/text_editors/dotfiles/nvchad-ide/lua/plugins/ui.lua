@@ -84,7 +84,6 @@ return {
   },
 
   -- Smooth navigation experience
-  --
   {
     "psliwka/vim-smoothie",
     lazy = false,

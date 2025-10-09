@@ -12,7 +12,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
-
 local lazy_config = require "configs.lazy"
 
 -- load plugins
@@ -29,6 +28,10 @@ require("lazy").setup({
   { import = "plugins" },
 }, lazy_config)
 
+-- load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
+
 require "options"
 require "nvchad.autocmds"
 
@@ -36,10 +39,6 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
-
--- load theme
-dofile(vim.g.base46_cache .. "defaults")
-dofile(vim.g.base46_cache .. "statusline")
 
 -- Gui config
 require "neovide"
