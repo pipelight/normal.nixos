@@ -1,6 +1,15 @@
 return {
   {
-    "elkowar/yuck.vim",
+    "R-nvim/R.nvim",
+    lazy = false,
+  },
+  -- Config files
+  {
+    "nfnty/vim-nftables",
+    lazy = false,
+  },
+  {
+    "jvirtanen/vim-hcl",
     lazy = true,
   },
   {
@@ -8,28 +17,9 @@ return {
     lazy = true,
   },
   {
-    "jvirtanen/vim-hcl",
+    "elkowar/yuck.vim",
     lazy = true,
   },
-  {
-    "nfnty/vim-nftables",
-    lazy = false,
-  },
-  -- {
-  --   "https://github.com/apple/pkl-neovim",
-  --   lazy = true,
-  --   event = {
-  --     "BufReadPre *.pkl",
-  --     "BufReadPre *.pcf",
-  --     "BufReadPre PklProject",
-  --   },
-  --   dependencies = {
-  --     "nvim-treesitter/nvim-treesitter",
-  --   },
-  --   build = function()
-  --     vim.cmd "TSInstall! pkl"
-  --   end,
-  -- },
   {
     "kndndrj/nvim-dbee",
     dependencies = {

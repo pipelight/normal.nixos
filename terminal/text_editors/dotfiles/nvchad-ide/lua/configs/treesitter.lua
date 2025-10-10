@@ -28,12 +28,17 @@ M.options = {
     "yaml",
     "jq",
     "xml",
+    "csv",
+    "markdown",
+    "markdown_inline",
 
     -- builder
     "go",
     "zig",
     "rust",
     "c",
+    "r",
+    "rnoweb",
 
     -- web
     "vue",

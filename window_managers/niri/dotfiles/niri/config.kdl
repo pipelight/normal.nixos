@@ -167,7 +167,7 @@ animations {
 }
 // Overview
 overview {
-    zoom 0.6
+    zoom 0.5
     workspace-shadow {
       off
     }
@@ -194,14 +194,15 @@ window-rule {
 window-rule {
   match app-id=r#"kitty"#
 }
-
+window-rule {
+  match app-id=r#"neovide"#
+  // default-column-display "tabbed"
+}
 window-rule {
   match app-id=r#"kitty"# title=r#"^nvim ~"# is-focused=true
-  match app-id=r#"kitty"# title=r#"^nvid ~"# is-focused=true
 }
 window-rule {
   match app-id=r#"kitty"# title=r#"^nvim ~"# is-focused=false
-  match app-id=r#"kitty"# title=r#"^nvid ~"# is-focused=false
 }
 
 include "./submap.kdl"

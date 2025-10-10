@@ -12,7 +12,6 @@ in
     mkIf cfg.wm.niri.enable {
       # Do not use following option as it maybe tweaks systemd too much
       # for our needs.
-
       # programs.niri.enable = true;
 
       environment.systemPackages = with pkgs; [

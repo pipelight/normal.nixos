@@ -9,10 +9,11 @@
 in
   with lib;
     mkIf cfg.wm.niri.enable {
+      ## Screen
       programs.light.enable = true;
-      security.rtkit.enable = true;
 
       ## Sound
+      users.groups.audio.members = config.normal.users;
       services.pulseaudio.enable = false;
       services.pipewire = {
         enable = true;
@@ -21,18 +22,13 @@ in
         pulse.enable = true;
       };
 
-      users.groups = let
-        e = config.normal.users;
-      in {
-        audio.members = e;
-        video.members = e;
-        # Mudra/Swhkd
-        input.members = e;
-      };
+      ## Video
+      users.groups.video.members = config.normal.users;
 
       # Mudras/Swhkd
       # No longer need to be root.
-      # Members of the input group can interact with keyboard.
+      # Members of the **input** group can interact with keyboard.
+      users.groups.input.members = config.normal.users;
       systemd.tmpfiles.rules = [
         "z /dev/input 0775 root input - -"
         "z /dev/uinput 0660 root input - -"
@@ -40,10 +36,12 @@ in
 
       environment.systemPackages = with pkgs; [
         # pactl audio control cli
-        xdg-utils
         pulseaudio
         pamixer
       ];
+
+      ## Non blocking processes
+      security.rtkit.enable = true;
 
       ###################################
       # Fonts
