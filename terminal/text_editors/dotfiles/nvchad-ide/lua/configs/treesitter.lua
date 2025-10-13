@@ -30,7 +30,7 @@ M.options = {
     "xml",
     "csv",
     "markdown",
-    "markdown_inline",
+    -- "markdown_inline",
 
     -- builder
     "go",
