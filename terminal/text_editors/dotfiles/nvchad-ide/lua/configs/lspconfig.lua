@@ -169,14 +169,15 @@ vim.lsp.config("ltex", {
 vim.lsp.enable "ltex"
 
 -- Diagnostic styling
---
 -- Enable diagnostic floating window on insert mode
+--
+vim.diagnostic.config {
+  -- float = "always",
+  virtual_text = false,
+  severity_sort = true,
+}
+-- Toggle diagnostic virtual text
 local function diagnostic_floating_window()
   vim.diagnostic.open_float(nil, { focus = false })
 end
 vim.api.nvim_create_autocmd("CursorHoldI", { callback = diagnostic_floating_window })
-
--- Toggle diagnostic virtual text
-vim.diagnostic.config {
-  virtual_text = false,
-}
