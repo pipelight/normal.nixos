@@ -24,6 +24,7 @@ M.options = {
 local ignore_filetypes = {
   "NvimTree",
   "NvimTree_1",
+  "DiffviewFiles",
   -- "toggleterm",
 }
 local ignore_buftypes = {

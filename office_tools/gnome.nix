@@ -29,10 +29,6 @@ with lib;
     ];
     # Temporary fix one line full gnome installation
     # services.xserver.desktopManager.gnome.enable = true;
-
-    # App store
-    services.flatpak.enable = true;
-
     environment.gnome.excludePackages = with pkgs; [
       gnome-photos
       gnome-tour

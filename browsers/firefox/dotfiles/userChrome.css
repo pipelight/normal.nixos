@@ -25,21 +25,21 @@ Global vars
 
   --black: #222222;
   --brightBlack: #636e7b;
-  --red: #f47067; 
+  --red: #f47067;
   --brightRed: #ff938a;
   --green: #57ab5a;
-  --brightGreen: #6bc46d; 
+  --brightGreen: #6bc46d;
   --yellow: #c69026;
   --brightYellow: #daaa3f;
-  --blue: #539bf5; 
+  --blue: #539bf5;
   --brightBlue: #6cb6ff;
-  --magenta: #b083f0; 
+  --magenta: #b083f0;
   --brightMagenta: #dcbdfb;
   --cyan: #39c5cf;
   --brightCyan: #56d4dd;
   --white: #909dab;
   --brightWhite: #cdd9e5;
-  
+
   --selection: #539bf5;
   --cursor: #539bf5;
 }
@@ -48,11 +48,10 @@ Compact height
 */
 #TabsToolbar,
 #tabbrowser-tabs,
-.toolbar-items
-{
-    --tab-min-height: var(--row-heght) !important;
-    --tab-max-height: var(--row-heght) !important;
-    padding-left: 2px;
+.toolbar-items {
+  --tab-min-height: var(--row-heght) !important;
+  --tab-max-height: var(--row-heght) !important;
+  padding-left: 2px;
 }
 
 /**
@@ -72,11 +71,9 @@ Hide elements
 /* #tracking-protection-icon-container, */
 /* #identity-box, */
 /* #urlbar-label-box, */
-/* #page-action-buttons  */
-{
-  display: none !important 
+/* #page-action-buttons  */ {
+  display: none !important;
 }
-
 
 /**
 Tab theme
@@ -87,8 +84,7 @@ Tab theme
   background-color: var(--black) !important;
 }
 /*Active tab*/
-.tabbrowser-tab:is([selected=true]) 
-.tab-background {
+.tabbrowser-tab:is([selected="true"]) .tab-background {
   background-color: var(--ultra-black) !important;
 }
 
@@ -97,9 +93,117 @@ Tab theme
   > .tab-stack
   > .tab-background
   > .tab-context-line {
-    margin: 1px !important;
-    padding: 1px !important;
-    height: 2px !important;
-    box-shadow: var(--glow) var(--identity-tab-color) !important;
+  margin: 1px !important;
+  padding: 1px !important;
+  height: 2px !important;
+  box-shadow: var(--glow) var(--identity-tab-color) !important;
 }
 
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+/*
+https://github.com/Arty2/userstyles
+@version      0.2.6
+
+1. Find your profile folder `about:support > Profile Folder > Open Folder` or locate the exact profile in use by visiting `about:profiles`.
+2. Create a folder named `chrome` then create a file named userChrome.css inside it and paste the following code.
+3. If userChrome.css doesn’t seem to work, open `about:config` and set `toolkit.legacyUserProfileCustomizations.stylesheets=true`.
+4. Restart Firefox.
+
+Other references:
+Firefox Support forum - Tabs below the URL bar: https://support.mozilla.org/en-US/kb/forum-response-tabs-below-url-bar
+Custom CSS tweaks for Firefox Quantum: https://github.com/Aris-t2/CustomCSSforFx
+*/
+
+/*----------------------------------------------------------
+Tabs to Bottom
+source: https://github.com/Arty2/userstyles/blob/master/tabs_to_bottom.userchrome.css
+
+UI model:
+	#navigator-toolbox
+		#titlebar
+			#toolbar-menubar
+			#TabsToolbar
+		#nav-bar
+		#PersonalToolbar
+	#browser
+*/
+
+/* bring the browser window to the top */
+#browser {
+  -moz-box-ordinal-group: 0 !important;
+  order: 0 !important;
+}
+
+#navigator-toolbox, /* after version 119 */ 
+#navigator-toolbox-background {
+  /* before version 119 */
+  -moz-box-ordinal-group: 1 !important;
+  order: 1 !important;
+}
+
+/* adjust paddings */
+*|*:root[sizemode="normal"] #browser {
+  padding-top: 0 !important;
+}
+
+/* hide tab toolbar when fullscreen */
+*|*:root[inFullscreen] #navigator-toolbox {
+  display: none;
+}
+
+/* hide titlebar buttons */
+#TabsToolbar > .titlebar-buttonbox-container {
+  display: none !important;
+}
+
+/*fix pop-ups opening below window*/
+#urlbar[open] {
+  display: flex !important;
+  flex-direction: column;
+  /* flex-direction: column-reverse; */
+  bottom: -2px !important;
+  top: auto !important;
+}
+
+.urlbarView-body-inner {
+  border-top: none !important;
+}
+.urlbarView {
+  display: none !important;
+}
+/* uncomment this to hide address bar suggestions */
+
+/* restore top border* /
+/* *|*:root[sizemode="normal"] #browser {
+  border-top: 0.5px solid AccentColor !important;
+}
+:root[sizemode="normal"]:-moz-window-inactive #browser {
+  border-top-color: rgb(57, 57, 57) !important;
+} */
+
+/* make toolbar border persist on fullscreen */
+/* *|*:root[sizemode="maximized"] #navigator-toolbox {
+	border-top: .5px solid AccentColor !important;
+	border-bottom: .5px solid AccentColor !important;
+}*/
+
+/* removes weird 1px borders above/below the navigator toolbox */
+#navigator-toolbox {
+  border-bottom: 0px !important;
+}
+:root[sizemode="normal"] #browser {
+  border-top: 0px !important;
+}
+:root[sizemode="maximized"] #navigator-toolbox {
+  border-top: 0px !important;
+  border-bottom: 0px !important;
+}
+
+/* stops the new search engine drop-down icon from floating in the middle of the screen */
+@media -moz-pref("browser.urlbar.searchModeSwitcher.featureGate") or -moz-pref("browser.urlbar.scotchBonnet.enableOverride") {
+  @media not -moz-pref("browser.urlbar.unifiedSearchButton.always") {
+    .searchmode-switcher {
+      position: unset !important;
+    }
+  }
+}

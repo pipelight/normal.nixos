@@ -68,4 +68,21 @@ in
           noto-fonts-cjk-sans
         ];
       };
+
+      ###################################
+      # Theming
+      programs.dconf.enable = true;
+
+      environment.etc = {
+        # Qt4
+        "xdg/Trolltech.conf".text = ''
+          [Qt]
+          style=GTK+
+        '';
+      };
+      environment.sessionVariables = {
+        # QT_WAYLAND_DECORATION = "adwaita";
+        QT_WAYLAND_DECORATION = "breeze-dark";
+        QT_QPA_PLATFORMTHEME = "gtk3";
+      };
     }

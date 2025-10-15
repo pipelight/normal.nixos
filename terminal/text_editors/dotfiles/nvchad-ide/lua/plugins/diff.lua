@@ -2,6 +2,21 @@ return {
   {
     "sindrets/diffview.nvim",
     lazy = false,
+    config = function()
+      require("diffview").setup {
+        keymaps = {
+          view = {
+            -- enable mapping for file panel
+            {
+              "n",
+              "<C-h>",
+              "<cmd> DiffviewToggleFiles <cr>",
+              { desc = "Toggle the file panel" },
+            },
+          },
+        },
+      }
+    end,
   },
   {
     "julienvincent/hunk.nvim",

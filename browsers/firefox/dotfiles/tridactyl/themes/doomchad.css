@@ -36,9 +36,13 @@
   --tridactyl-hint-bg: none;
   --tridactyl-hint-outline: none;
 
-  --tridactyl-cmdl-font-size: 11px;
+  --tridactyl-cmdl-font-size: 12px;
   --tridactyl-cmdl-bg: var(--base00);
+  --tridactyl-cmdl-fg: var(--base05);
   --tridactyl-cmdl-font-weight: 700;
+
+  --tridactyl-cmplt-fg: var(--base00);
+  --tridactyl-cmplt-bg: var(--base0B);
 }
 
 /* INPUT */

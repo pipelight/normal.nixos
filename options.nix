@@ -102,21 +102,6 @@ in
             Toggle the hyprland window manager
           '';
         };
-        hyprland = {
-          enable = mkEnableOption ''
-            Toggle the hyprland window manager
-          '';
-          mode = mkOption {
-            type = with types; enum ["bspwm" "niri"];
-            description = ''
-              The default window manager tilling behavior
-            '';
-            default = "niri";
-          };
-          wide = mkEnableOption ''
-            Convenient window splits for ultrawide monitors
-          '';
-        };
         gnome = {
           enable = mkEnableOption ''
             Toggle the gnome desktop environment.

@@ -27,7 +27,7 @@
   '';
 in
   with lib;
-    mkIf config.normal.wm.gnome.enable {
+    mkIf (config.normal.wm.gnome.enable || config.normal.wm.niri.enable) {
       home.packages = with pkgs; [
         ## Gtk/Qt theme compatibility
         qt6Packages.qt6ct

@@ -9,7 +9,7 @@
 in
   with lib;
     mkIf
-    (cfg.wm.hyprland.enable
+    (cfg.wm.niri.enable
       || cfg.wm.gnome.enable)
     {
       programs = {
