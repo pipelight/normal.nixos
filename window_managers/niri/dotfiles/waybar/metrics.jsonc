@@ -55,9 +55,9 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}%",
-        "format-full": "{capacity}%",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% "
+        "format": " bat: {capacity}%",
+        "format-full": " bat: {capacity}%",
+        "format-charging": " bat: {capacity}%",
+        "format-plugged": " bat: {capacity}%"
     }
 }

@@ -9,16 +9,24 @@ with lib;
   mkIf config.normal.wm.niri.enable {
     home.file = {
       # Keyboard
-      ".config/wlr-which-key/config.yaml".source = dotfiles/wlr-which-key/config.yaml;
+      ".config/mudras/config.kdl".source = dotfiles/mudras/config.kdl;
+
       # App launcher
       ".config/yofi".source = dotfiles/yofi;
 
+      # Window Manager (niri)
+      ".config/niri/config.kdl".source = dotfiles/niri/config.kdl;
+      ".config/niri/main.kdl".source = dotfiles/niri/main.kdl;
+      ".config/niri/manageable.kdl".source = dotfiles/niri/manageable.kdl;
+
+      # Bars
+      ".config/waybar/main.jsonc".source = dotfiles/waybar/main.jsonc;
+      ".config/waybar/workspaces.jsonc".source = dotfiles/waybar/workspaces.jsonc;
+      ".config/waybar/metrics.jsonc".source = dotfiles/waybar/metrics.jsonc;
+      ".config/waybar/style.css".source = dotfiles/waybar/style.css;
+
       # Notifications
       ".config/dunst/dunstrc".source = dotfiles/dunstrc;
-
-      # ".config/niri/config.kdl".source = dotfiles/niri/config.kdl;
-      # ".config/niri/main.kdl".source = dotfiles/niri/main.kdl;
-      # ".config/niri/manageable.kdl".source = dotfiles/niri/manageable.kdl;
     };
 
     home.packages = with pkgs; let
