@@ -7,10 +7,6 @@
 }:
 with lib;
   mkIf config.normal.terminal.emulators.kitty.enable {
-    home.file = {
-      ".config/kitty/ssh.conf".source = dotfiles/kitty/ssh.conf;
-    };
-
     # Terminal
     programs = {
       kitty = {

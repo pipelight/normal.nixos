@@ -20,8 +20,8 @@
   '';
   umount_cryptstorage = pkgs.writeShellScriptBin "umount_cryptstorage" ''
     fn() {
-      sudo ${pkgs.util-linux}/bin/umount /run/media/HDD
-      sudo ${pkgs.systemd}/bin/systemd-cryptsetup detach cryptstorage
+      ${pkgs.util-linux}/bin/umount /run/media/HDD
+      ${pkgs.systemd}/bin/systemd-cryptsetup detach cryptstorage
     }
     fn
   '';

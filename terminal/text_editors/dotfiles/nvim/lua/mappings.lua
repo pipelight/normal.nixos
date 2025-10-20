@@ -17,6 +17,11 @@ map("n", "<C-e>", "<C-w>k", { desc = "Go to window up" })
 map("n", "<C-i>", "<C-w>l", { desc = "Go to window right" })
 map("n", "<C-x>", "<C-w>x", { desc = "Go swap with next window" })
 
+-- nomap("n", "h")
+-- nomap("n", "j")
+-- nomap("n", "k")
+-- nomap("n", "l")
+
 -- fast file browsing
 map("n", "<PageUp>", "25<C-u>z", { desc = "Motions page down" })
 map("v", "<PageUp>", "25<C-u>z.", { desc = "Motions page down" })
