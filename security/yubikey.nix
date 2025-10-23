@@ -30,6 +30,17 @@ in
     mkIf config.normal.security.yubikey.enable {
       boot.initrd.luks.yubikeySupport = true;
 
+      ##########################
+      # On yubikey unplug:
+      # - unmount disks
+      # - kill user sessions
+      systemd.services."kill_all_sessions" = {
+        enable = true;
+        description = "Kill all running sessions";
+        serviceConfig = {
+          ExecStart = "${kill_all_sessions}/bin/kill_all_sessions";
+        };
+      };
       services.udev.extraRules = ''
         ACTION=="remove",\
         ENV{SUBSYSTEM}=="usb",\
@@ -37,11 +48,13 @@ in
         RUN+="${pkgs.systemd}/bin/systemctl start kill_all_sessions",\
         RUN+="${umount_cryptstorage}/bin/umount_cryptstorage"
       '';
+
       environment.systemPackages = with pkgs; [
         # Yubikey
         yubikey-manager
         yubikey-personalization
         yubico-pam
+        yubico-piv-tool
 
         usbutils
         procps
@@ -50,6 +63,16 @@ in
         mount_cryptstorage
         umount_cryptstorage
       ];
+
+      services.udev.packages = with pkgs; [
+        yubikey-personalization
+        procps
+        gnugrep
+      ];
+      services.pcscd.enable = true;
+
+      ##########################
+      # Unused
 
       # security.pam.services = {
       #   login.u2fAuth = true;
@@ -60,20 +83,4 @@ in
       #   enable = true;
       #   enableSSHSupport = true;
       #};
-
-      services.pcscd.enable = true;
-
-      services.udev.packages = with pkgs; [
-        yubikey-personalization
-        procps
-        gnugrep
-      ];
-
-      systemd.services."kill_all_sessions" = {
-        enable = true;
-        description = "Kill all running sessions";
-        serviceConfig = {
-          ExecStart = "${kill_all_sessions}/bin/kill_all_sessions";
-        };
-      };
     }

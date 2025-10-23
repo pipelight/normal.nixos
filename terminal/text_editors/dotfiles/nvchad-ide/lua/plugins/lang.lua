@@ -2,6 +2,19 @@ return {
   {
     "R-nvim/R.nvim",
     lazy = false,
+    config = function()
+      require("r").setup {
+        auto_quit = true,
+        auto_start = "always",
+        pdfviewer = "evince",
+        hook = {
+          on_filetype = function()
+            vim.api.nvim_buf_set_keymap(0, "n", "<Enter>", "<Plug>RDSendLine", {})
+            vim.api.nvim_buf_set_keymap(0, "v", "<Enter>", "<Plug>RSendSelection", {})
+          end,
+        },
+      }
+    end,
   },
   -- Config files
   {

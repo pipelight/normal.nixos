@@ -25,7 +25,7 @@ Super+q {
 Super {
   @release {
     // enter a submap
-    - r#"ln -sf /home/anon/.config/niri/manageable.kdl /home/anon/.config/niri/submap.kdl"#
+    - r#"ln -sf ~/.config/niri/manageable.kdl ~/.config/niri/submap.kdl"#
     - r#"niri msg action load-config-file"#
     @enter "window_manager"
   }

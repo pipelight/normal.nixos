@@ -15,7 +15,6 @@ with lib;
       keepassxc
 
       ## Cryptographic keys
-      gnupg
       sops
       age
       ssh-to-age # ed25519 to age
