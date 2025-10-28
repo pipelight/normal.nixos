@@ -5,6 +5,9 @@ if vim.g.neovide then
   local cwd = vim.fn.getcwd()
   vim.opt.titlestring = [[%{v:progname} ]] .. cwd
 
+  -- Colors
+  vim.opt.termguicolors = true
+
   -- Fonts
   vim.o.guifont = "JetBrainsMono Nerd Font Mono:h10.8"
 

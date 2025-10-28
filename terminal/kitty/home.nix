@@ -7,6 +7,10 @@
 }:
 with lib;
   mkIf config.normal.terminal.emulators.kitty.enable {
+    home.file = {
+      ".config/kitty/themes/gitHub_dark_dimmed.conf".source = dotfiles/kitty/gitHub_dark_dimmed.conf;
+      ".config/kitty/themes/doom_chad.conf".source = dotfiles/kitty/doom_chad.conf;
+    };
     # Terminal
     programs = {
       kitty = {
@@ -18,8 +22,8 @@ with lib;
             font_size ${toString (cfg.font.size)}
           '')
         ];
-        themeFile = "GitHub_Dark_Dimmed";
-        # themeFile = "Doom_One";
+        # themeFile = "GitHub_Dark_Dimmed";
+        themeFile = "Doom_Chad";
       };
     };
   }
