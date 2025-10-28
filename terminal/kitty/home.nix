@@ -10,6 +10,7 @@ with lib;
     home.file = {
       ".config/kitty/themes/github_dark_dimmed.conf".source = dotfiles/kitty/github_dark_dimmed.conf;
       ".config/kitty/themes/doom_chad.conf".source = dotfiles/kitty/doom_chad.conf;
+      ".config/kitty/themes/doom_hub.conf".source = dotfiles/kitty/doom_hub.conf;
     };
     # Terminal
     programs = {

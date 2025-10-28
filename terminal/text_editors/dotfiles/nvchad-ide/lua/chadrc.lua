@@ -39,4 +39,8 @@ M.ui = {
   },
 }
 
+M.term = {
+  base46_colors = true,
+}
+
 return M

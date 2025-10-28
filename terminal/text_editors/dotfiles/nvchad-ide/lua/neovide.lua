@@ -8,6 +8,33 @@ if vim.g.neovide then
   -- Colors
   vim.opt.termguicolors = true
 
+  -- bug fix: Explicitely pass terminal colors.
+  -- Doomchad
+  -- black
+  vim.g.terminal_color_0 = "#4e525a"
+  vim.g.terminal_color_8 = "#5a5e66"
+  -- red
+  vim.g.terminal_color_1 = "#ff6c6b"
+  vim.g.terminal_color_9 = "#ff6b5a"
+  -- green
+  vim.g.terminal_color_2 = "#98be65"
+  vim.g.terminal_color_10 = "#a9cf76"
+  -- yellow
+  vim.g.terminal_color_3 = "#ecbe7b"
+  vim.g.terminal_color_11 = "#f2c481"
+  -- blue
+  vim.g.terminal_color_4 = "#48a6e6"
+  vim.g.terminal_color_12 = "#66c4ff"
+  -- magenta
+  vim.g.terminal_color_5 = "#c678dd"
+  vim.g.terminal_color_13 = "#dc8ef3"
+  -- cyan
+  vim.g.terminal_color_6 = "#46d9ff"
+  vim.g.terminal_color_14 = "#56d4dd"
+  -- white
+  vim.g.terminal_color_7 = "#a7aebb"
+  vim.g.terminal_color_15 = "#bbc2cf"
+
   -- Fonts
   vim.o.guifont = "JetBrainsMono Nerd Font Mono:h10.8"
 
