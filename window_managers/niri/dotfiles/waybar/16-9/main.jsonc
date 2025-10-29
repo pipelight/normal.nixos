@@ -1,0 +1,31 @@
+// -*- mode: jsonc -*-
+{
+    "reload_style_on_change": true,
+    "name": "main",
+
+    "layer": "top",
+    "exclusive": false,
+
+    "height": 10,
+
+    "position": "bottom",
+
+    // "width": 1000,
+    "margin-bottom": 30,
+    "margin-left": 100,
+
+    "spacing": 0, // Gaps between modules (4px)
+
+    // Choose the order of the modules
+    "modules-left": [
+        "clock",
+        "niri/window"
+    ],
+    "clock": {
+      "interval": 1,
+      "format": "{:%a, %d %b  -  %Hh%M %Ss}"
+    },
+    "niri/window": {
+        "format": "{}"
+    }
+}

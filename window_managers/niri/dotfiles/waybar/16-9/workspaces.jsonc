@@ -1,0 +1,27 @@
+// -*- mode: jsonc -*-
+{
+    "reload_style_on_change": true,
+    "name": "workspaces",
+
+    "layer": "top",
+    "exclusive": false,
+
+    "position": "left",
+
+    // Full width or height if not set.
+    // "height": 200,
+    // "width": 30,
+
+    "margin-left": 40,
+    "margin-bottom": 0,
+
+    "spacing": 0, // Gaps between modules (4px)
+
+    // Choose the order of the modules
+    "modules-right": [
+        "niri/workspaces"
+    ],
+    "niri/workspaces": {
+      "format": ""
+    }
+}

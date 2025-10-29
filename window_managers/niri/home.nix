@@ -7,27 +7,31 @@
 }:
 with lib;
   mkIf config.normal.wm.niri.enable {
-    home.file = {
-      # Keyboard
-      ".config/mudras/config.kdl".source = dotfiles/mudras/config.kdl;
+    home.file = let
+      screen = config.normal.wm.niri.screen;
+    in
+      {
+        # Keyboard
+        ".config/mudras/config.kdl".source = dotfiles/mudras/config.kdl;
 
-      # App launcher
-      ".config/yofi".source = dotfiles/yofi;
+        # App launcher
+        ".config/yofi".source = dotfiles/yofi;
 
-      # Window Manager (niri)
-      ".config/niri/config.kdl".source = dotfiles/niri/config.kdl;
-      ".config/niri/main.kdl".source = dotfiles/niri/main.kdl;
-      ".config/niri/manageable.kdl".source = dotfiles/niri/manageable.kdl;
+        # Window Manager (niri)
+        ".config/niri/config.kdl".source = dotfiles/niri/config.kdl;
+        ".config/niri/main.kdl".source = dotfiles/niri/main.kdl;
+        ".config/niri/manageable.kdl".source = dotfiles/niri/manageable.kdl;
 
-      # Bars
-      ".config/waybar/main.jsonc".source = dotfiles/waybar/main.jsonc;
-      ".config/waybar/workspaces.jsonc".source = dotfiles/waybar/workspaces.jsonc;
-      ".config/waybar/metrics.jsonc".source = dotfiles/waybar/metrics.jsonc;
-      ".config/waybar/style.css".source = dotfiles/waybar/style.css;
-
-      # Notifications
-      ".config/dunst/dunstrc".source = dotfiles/dunstrc;
-    };
+        # Notifications
+        ".config/dunst/dunstrc".source = dotfiles/dunstrc;
+      }
+      // {
+        # Bars
+        ".config/waybar/main.jsonc".source = dotfiles/waybar/${screen}/main.jsonc;
+        ".config/waybar/workspaces.jsonc".source = dotfiles/waybar/${screen}/workspaces.jsonc;
+        ".config/waybar/metrics.jsonc".source = dotfiles/waybar/${screen}/metrics.jsonc;
+        ".config/waybar/style.css".source = dotfiles/waybar/${screen}/style.css;
+      };
 
     home.packages = with pkgs; let
       image_to_grayscale = pkgs.writeShellScriptBin "image_to_grayscale" ''

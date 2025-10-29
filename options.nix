@@ -100,8 +100,15 @@ in
       wm = {
         niri = {
           enable = mkEnableOption ''
-            Toggle the hyprland window manager
+            Toggle the niri window manager
           '';
+          screen = mkOption {
+            type = with types; enum ["21-9" "16-9"];
+            description = ''
+              Screen size
+            '';
+            default = "16-9";
+          };
         };
         gnome = {
           enable = mkEnableOption ''

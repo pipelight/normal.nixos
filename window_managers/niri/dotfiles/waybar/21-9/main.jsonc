@@ -6,14 +6,16 @@
     "layer": "top",
     "exclusive": false,
 
-    "position": "bottom",
     "height": 10,
+
+    "position": "bottom",
 
     // "width": 1000,
     "margin-bottom": 50,
     "margin-left": 500,
 
     "spacing": 0, // Gaps between modules (4px)
+
     // Choose the order of the modules
     "modules-left": [
         "clock",
