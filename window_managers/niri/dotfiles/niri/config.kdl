@@ -90,9 +90,9 @@ output "eDP-1" {
       proportion 1.0
     }
     struts {
-      top 0
-      left 20
-      right 10
+      top 10
+      left 40
+      right 20
       bottom 40
     }
   }
