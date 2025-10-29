@@ -93,7 +93,7 @@ output "eDP-1" {
       top 10
       left 40
       right 20
-      bottom 40
+      bottom 30
     }
   }
 }

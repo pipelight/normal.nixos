@@ -35,9 +35,6 @@ if vim.g.neovide then
   vim.g.terminal_color_7 = "#a7aebb"
   vim.g.terminal_color_15 = "#bbc2cf"
 
-  -- Fonts
-  vim.o.guifont = "JetBrainsMono Nerd Font Mono:h10.8"
-
   -- Padding
   vim.g.neovide_padding_top = 2
   vim.g.neovide_padding_bottom = 2
