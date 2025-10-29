@@ -35,6 +35,7 @@ in
           description = ''
             General font size.
           '';
+          default = 11;
         };
       };
 

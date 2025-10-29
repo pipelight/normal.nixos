@@ -42,6 +42,7 @@ nomap("n", "<C-l>")
 
 -- terminal
 nomap("n", "<leader>h")
+map("n", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
 -- fast file browsing
 map("n", "<PageUp>", "<cmd>call smoothie#do('25<C-u>z.')<cr>", { desc = "Motions page down (smooth)" })

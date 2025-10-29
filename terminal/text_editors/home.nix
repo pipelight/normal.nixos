@@ -79,14 +79,19 @@ with lib;
         vsync = true;
         wls = false;
         srgb = false;
-        font = {
+        font = let
+          cfg = config.normal;
+        in {
           normal = [
             "JetBrainsMono Nerd Font Mono"
             "NotoSansM Nerd Font Mono"
             "Noto Sans Mono CJK JP"
             "Noto Color Emoji"
           ];
-          size = 10.8;
+          size =
+            if cfg.font.enable
+            then (cfg.font.size - 0.2)
+            else 10.8;
         };
       };
     };

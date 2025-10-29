@@ -35,10 +35,9 @@ return {
         end,
         direction = "vertical",
         persist_size = false,
-        hide_numbers = true,
+        hide_numbers = false,
         close_on_exit = false,
-        shade_terminals = true,
-        shading_factor = 75,
+        shade_terminals = false,
         terminal_mappings = true,
         shell = "fish",
       }

@@ -136,6 +136,16 @@ with lib;
             # Common engines
             "wikipedia".metaData.alias = "@wiki";
 
+            # Ebooks
+            "Annas" = {
+              urls = [
+                {template = "https://annas-archive.org/search?q={searchTerms}";}
+              ];
+              icon = "https://annas-archive.org/favicon-16x16.png";
+              updateInterval = 24 * 60 * 60 * 1000;
+              definedAliases = ["@annas"];
+            };
+
             # Anime torrent
             "Nyaa" = {
               urls = [{template = "https://nyaa.si/?q={searchTerms}";}];
