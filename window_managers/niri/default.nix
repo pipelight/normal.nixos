@@ -1,12 +1,13 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   lib,
   inputs,
   ...
 }: let
   cfg = config.normal;
-  # niri-latest = pkgs.callPackage ./niri.latest.nix {};
+  niri-latest = pkgs.callPackage ./niri.latest.nix {};
 in
   with lib;
     mkIf cfg.wm.niri.enable {
@@ -16,8 +17,8 @@ in
 
       environment.systemPackages = with pkgs; [
         ## Window manager
-        niri
-        # niri-latest
+        # pkgs-unstable.niri
+        niri-latest
         xwayland-satellite
 
         ## keyboard daemons

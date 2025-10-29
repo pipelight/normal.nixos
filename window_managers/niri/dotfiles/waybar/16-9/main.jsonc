@@ -11,7 +11,7 @@
     "position": "bottom",
 
     // "width": 1000,
-    "margin-bottom": 30,
+    "margin-bottom": 10,
     "margin-left": 100,
 
     "spacing": 0, // Gaps between modules (4px)
