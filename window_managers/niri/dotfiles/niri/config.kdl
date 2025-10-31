@@ -192,6 +192,17 @@ window-rule {
 }
 
 window-rule {
+  match app-id=r#"kitty"# title=r#".*@.*"# is-focused=true
+  match app-id=r#"kitty"# title=r#"scp"# is-focused=true
+  match app-id=r#"kitty"# title=r#"rsync"# is-focused=true
+  border {
+    width 1.5
+    active-color "#ff6c6b"
+  }
+}
+
+// Window default sizes per application
+window-rule {
   match app-id=r#"kitty"#
 }
 window-rule {

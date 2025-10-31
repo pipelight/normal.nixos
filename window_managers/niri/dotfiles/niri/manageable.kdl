@@ -4,6 +4,5 @@ layout {
     width 1.5
     active-color "#6bc46d"
     inactive-color "#282c34"
-    urgent-color "#ff938a"
   }
 }

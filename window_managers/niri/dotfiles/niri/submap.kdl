@@ -1,9 +1,0 @@
-layout {
-  center-focused-column "never"
-  border { 
-    width 1.5
-    active-color "#000000"
-    inactive-color "#282c34"
-    urgent-color "#ff938a"
-  }
-}
