@@ -178,7 +178,6 @@ layer-rule {
     place-within-backdrop true
 }
 
-
 // Rules
 window-rule {
   draw-border-with-background false
@@ -189,16 +188,6 @@ window-rule {
   match is-active=false
   match is-focused=false
   opacity 0.9
-}
-
-window-rule {
-  match app-id=r#"kitty"# title=r#".*@.*"# is-focused=true
-  match app-id=r#"kitty"# title=r#"scp"# is-focused=true
-  match app-id=r#"kitty"# title=r#"rsync"# is-focused=true
-  border {
-    width 1.5
-    active-color "#ff6c6b"
-  }
 }
 
 // Window default sizes per application

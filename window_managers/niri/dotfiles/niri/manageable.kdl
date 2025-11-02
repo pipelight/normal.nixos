@@ -1,8 +1,18 @@
 layout {
   center-focused-column "on-overflow"
   border { 
-    width 1.5
+    width 2
     active-color "#6bc46d"
     inactive-color "#282c34"
   }
 }
+window-rule {
+  match app-id=r#"kitty"# title=r#".*@.*"# is-focused=true
+  match app-id=r#"kitty"# title=r#"scp"# is-focused=true
+  match app-id=r#"kitty"# title=r#"rsync"# is-focused=true
+  border {
+    width 2
+    active-color "#6bc46d"
+  }
+}
+
