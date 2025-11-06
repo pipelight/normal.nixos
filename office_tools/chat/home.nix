@@ -18,7 +18,7 @@ with lib;
       # telegram-desktop
 
       # Bottom tier apps
-      discord
+      # discord
 
       # A terminal based chat application plugable with
       # ircd and darkirc
