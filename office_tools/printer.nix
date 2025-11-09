@@ -5,6 +5,7 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   lib,
   ...
 }:
@@ -41,7 +42,7 @@ with lib;
     ## Scanners
     # Enable SANE to handle scanners
     hardware.sane.enable = true;
-    hardware.sane.extraBackends = [pkgs.epkowa];
+    # hardware.sane.extraBackends = [pkgs.epkowa];
     # Epson support
     users.groups = let
       e = config.normal.users;

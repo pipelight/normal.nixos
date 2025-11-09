@@ -19,6 +19,7 @@ local servers = {
   "taplo",
   "yamlls",
   "marksman",
+  "tinymist",
 
   -- Go
   "gopls",

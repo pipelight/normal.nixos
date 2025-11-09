@@ -31,6 +31,8 @@ with lib;
     services.ollama = {
       package = pkgs.ollama;
       enable = true;
+      host = "[::1]"; #ipv6
+      port = 11434; #default
       acceleration = "cuda";
       # loadModels = ["mistral"];
       environmentVariables = {
@@ -39,7 +41,9 @@ with lib;
     };
 
     environment.sessionVariables = {
+      # cli compat
       OLLAMA_API_KEY = "";
+      OLLAMA_HOST = "http://[::1]:11434";
     };
     environment.variables = {
       OLLAMA_LLM_LIBRARY = "cuda_v12";

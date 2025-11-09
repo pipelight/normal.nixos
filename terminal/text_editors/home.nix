@@ -127,6 +127,8 @@ with lib;
 
             # Grammar
             ltex-ls
+            # Typst
+            tinymist
             # Lua
             lua-language-server
             stylua

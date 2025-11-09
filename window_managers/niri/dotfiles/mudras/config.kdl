@@ -38,6 +38,7 @@ Super+f {
     - r#"niri msg action "center-column""#
   }
 }
+
 Super+m {
   @press {
     - r#"niri msg action "focus-column-left""#
@@ -58,6 +59,28 @@ Super+i {
     - r#"niri msg action "focus-column-right""#
   }
 }
+// Mirror
+Super+r {
+  @press {
+    - r#"niri msg action "focus-column-left""#
+  }
+}
+Super+t { 
+  @press {
+    - r#"niri msg action "focus-window-down""#; 
+  }
+} 
+Super+s { 
+  @press {
+    - r#"niri msg action "focus-window-up""#; 
+  }
+} 
+Super+g {
+  @press {
+    - r#"niri msg action "focus-column-right""#
+  }
+}
+
 
 ////////////////////////////////
 // Submap definition
@@ -81,7 +104,7 @@ Super+i {
   }
 
   // Overview
-  t {
+  b {
     @press {
       - r#"niri msg action "toggle-overview""#
     }
@@ -132,6 +155,27 @@ Super+i {
     }
   } 
   i {
+    @press {
+      - r#"niri msg action "focus-column-right""#
+    }
+  }
+  // Mirror
+  r {
+    @press {
+      - r#"niri msg action "focus-column-left""#
+    }
+  }
+  t { 
+    @press {
+      - r#"niri msg action "focus-window-or-workspace-down""#; 
+    }
+  } 
+  s { 
+    @press {
+      - r#"niri msg action "focus-window-or-workspace-up""#; 
+    }
+  } 
+  g {
     @press {
       - r#"niri msg action "focus-column-right""#
     }

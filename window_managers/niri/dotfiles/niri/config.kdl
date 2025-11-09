@@ -101,6 +101,7 @@ output "eDP-1" {
 layout {
   always-center-single-column
   empty-workspace-above-first
+  // background-color "#00000000"
   background-color "transparent"
   /* 
   * Not released

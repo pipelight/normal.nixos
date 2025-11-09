@@ -11,13 +11,20 @@ with lib;
       "org/gnome/shell" = {
         favorite-apps = [
           "firefox.desktop"
-          "fish.desktop"
+          # "fish.desktop"
           "lutris.desktop"
           "nautilus.desktop"
+          "settings.deskto"
         ];
       };
       "org/gnome/settings-daemon/plugins/color" = {
         night-light-enabled = true;
+      };
+
+      # Remove gtk window buttons
+      "org/gnome/desktop/wm/preferences" = {
+        button-layout = "";
+        # button-layout = "minimize,maximize,close";
       };
     };
   }

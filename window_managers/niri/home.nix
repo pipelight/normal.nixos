@@ -52,4 +52,14 @@ with lib;
       # notifications
       dunst
     ];
+
+    # Remove gtk window buttons
+    dconf = {
+      enable = true;
+      settings = {
+        "org/gnome/desktop/wm/preferences" = {
+          button-layout = "";
+        };
+      };
+    };
   }

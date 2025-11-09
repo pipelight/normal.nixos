@@ -38,7 +38,7 @@ include-prompt: 0
 # Maximum number of times to retry API calls.
 max-retries: 5
 # Your desired level of fanciness.
-fanciness: 30
+fanciness: 100
 # Text to show while generating.
 status-text: Thinking
 # Default character limit on input to model.
@@ -48,7 +48,7 @@ max-input-chars: 2048
 # Aliases and endpoints for OpenAI compatible REST API.
 apis:
   ollama:
-    base-url: http://127.0.0.1:11434/api
+    base-url: http://[::1]:11434/api
     api-key:
     api-key-env: OLLAMA_API_KEY
     models:

@@ -35,34 +35,15 @@ in
   with pkgs;
     rustPlatform.buildRustPackage (finalAttrs: {
       pname = "niri";
-      version = "25.05.1";
-
-      # src = fetchFromGitHub {
-      #   owner = "titaniumtraveler";
-      #   repo = "niri";
-      #   rev = "fork/main";
-      #   # tag = "v${finalAttrs.version}";
-      #   hash = "sha256-8gjv27fsTLr+eGgKKXDkVqRgFY5LDR02aWAFN8COcJM=";
-      #   # hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-      # };
-      # cargoHash = "sha256-HlTHlUnXxpllY0xH7fa/F67o7haDoSXJpZn3opwxTCA=";
-
-      # src = fetchFromGitHub {
-      #   owner = "YaLTeR";
-      #   repo = "niri";
-      #   rev = "wip/mergeable-layout";
-      #   hash = "sha256-OjQGbps91MZtvC8KmnN/9gue5C21URvEXNY+lLGUA+k=";
-      # };
-      # cargoHash = "sha256-Uvf11daCy5m3muun9BXmOw9uiy8L53FgUwyUSxCHaIk=";
+      version = "25.08";
 
       src = fetchFromGitHub {
         owner = "YaLTeR";
         repo = "niri";
-        rev = "wip/include";
-        # hash = "sha256-/4F/27P8ZUVAVhFsUXsWlC1l2Jvo6Oux6LSuS4pAAhk=";
-        hash = "sha256-D6b0R2e+9tlHFzRaRpffV6e1IxBs2T9gfmR8pYOdjzU=";
+        rev = "main";
+        hash = "sha256-cjXYF5+gGaapr6d1Jz70GZQVzK4qzwDUwU86p9+H2mM=";
       };
-      cargoHash = "sha256-Uvf11daCy5m3muun9BXmOw9uiy8L53FgUwyUSxCHaIk=";
+      cargoHash = "sha256-Me8woNt30B77K3NPnEaB7YoT+2o64AiiYBhGzHfSUNM=";
 
       postPatch = ''
         patchShebangs resources/niri-session
@@ -71,10 +52,7 @@ in
       '';
 
       useFetchCargoVendor = true;
-      # cargoHash = "sha256-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX=";
-
       strictDeps = true;
-
       nativeBuildInputs = [
         installShellFiles
         pkg-config
