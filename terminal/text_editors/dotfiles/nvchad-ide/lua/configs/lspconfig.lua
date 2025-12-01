@@ -132,7 +132,7 @@ vim.lsp.config("denols", {
   -- on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
-  root_marker = { "deno.lock", "mod.ts" },
+  root_marker = { "deno.lock", "deno.json", "mod.ts" },
 })
 vim.lsp.enable "denols"
 

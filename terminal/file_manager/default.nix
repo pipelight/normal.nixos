@@ -27,7 +27,7 @@ with lib;
       libarchive
 
       unrar
-      du-dust
+      dust
 
       udevil
     ];

@@ -49,6 +49,8 @@ M.options = {
     "pug",
     "html",
 
+    "caddy",
+
     "yuck",
   },
   highlight = {

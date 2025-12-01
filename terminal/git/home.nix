@@ -23,7 +23,7 @@ with lib;
         enable = true;
         # iniContent.gpg.format = lib.mkDefault "ssh";
         iniContent.gpg.format = lib.mkForce "ssh";
-        extraConfig = {
+        settings = {
           commit.template = "~/.config/git/conventional_commit_message";
           core = {
             editor = "nvim -u ~/.config/nvchad/init.lua";

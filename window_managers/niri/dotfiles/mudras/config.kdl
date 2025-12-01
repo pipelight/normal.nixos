@@ -5,7 +5,7 @@ Super+Enter {
     - "kitty -e fish"
   }
 }
-Super+Space{
+Super+Space {
   @press {
     - "yofi"
   }
@@ -159,7 +159,7 @@ Super+g {
       - r#"niri msg action "focus-column-right""#
     }
   }
-  // Mirror
+  // Focus Mirror
   r {
     @press {
       - r#"niri msg action "focus-column-left""#

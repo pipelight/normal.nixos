@@ -5,6 +5,11 @@ local options = {
     hclfmt = {
       command = "hclfmt",
     },
+    caddy = {
+      command = "caddy",
+      args = { "fmt", "-" },
+      stdin = true,
+    },
   },
 
   -- Prettier recommandations:
@@ -40,6 +45,8 @@ local options = {
     zig = { "zigfmt" },
     hcl = { "hclfmt" },
     sql = { "sqlfluff" },
+
+    caddy = { "caddy" },
   },
 
   format_on_save = {

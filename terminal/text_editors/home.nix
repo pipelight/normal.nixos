@@ -117,7 +117,7 @@ with lib;
         (
           mkIf (config.normal.editors.nvchad-ide.enable)
           [
-            treefmt2
+            treefmt
             git-cliff
 
             neovim
@@ -171,7 +171,6 @@ with lib;
 
             # nodePackages.eslint
             eslint
-            nodePackages.jsonlint
 
             vue-language-server
           ]

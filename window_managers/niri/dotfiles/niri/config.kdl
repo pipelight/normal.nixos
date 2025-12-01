@@ -191,6 +191,19 @@ window-rule {
   opacity 0.9
 }
 
+// Block out password managers from screencasts.
+window-rule {
+  match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+  match app-id=r#"^org\.gnome\.World\.Secrets$"#
+  block-out-from "screencast"
+}
+window-rule {
+  match app-id=r#"^com\.obsproject\.Studio$"#
+  open-maximized false
+  open-fullscreen false
+}
+
+
 // Window default sizes per application
 window-rule {
   match app-id=r#"kitty"#

@@ -18,7 +18,7 @@ with lib;
     environment.systemPackages = with pkgs; [
       obs-cli
       # shotcut
-      kdePackages.kdenlive
+      # kdePackages.kdenlive
     ];
     environment.sessionVariables = {
       HYPRSHOT_DIR = "$HOME/Pictures/Screenshots";

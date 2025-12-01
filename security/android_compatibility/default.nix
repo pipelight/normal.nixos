@@ -23,13 +23,4 @@ with lib;
       # Work with usb devices
       usbutils
     ];
-
-    ################################
-    ### Phones
-    ## Automount Google devices
-
-    # automount android devices
-    services.udev.packages = with pkgs; [
-      android-udev-rules
-    ];
   }
