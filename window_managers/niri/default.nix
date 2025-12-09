@@ -14,7 +14,9 @@ in
       # for our needs.
       # programs.niri.enable = true;
 
-      environment.systemPackages = with pkgs; [
+      environment.systemPackages = with pkgs; let
+        system = stdenv.hostPlatform.system;
+      in [
         ## Window manager
         pkgs-unstable.niri
         xwayland-satellite

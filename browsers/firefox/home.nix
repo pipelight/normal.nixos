@@ -85,8 +85,12 @@ with lib;
           engines = {
             # Local search engine
             "SearxNG" = {
-              urls = [{template = "http://127.0.0.1:8888/?q={searchTerms}";}];
-              icon = "http://127.0.0.1:8888/static/themes/simple/img/favicon.svg";
+              urls = [
+                {template = "http://[::1]:8888/?q={searchTerms}";}
+                # {template = "http://127.0.0.1:8888/?q={searchTerms}";}
+              ];
+              # icon = "http://127.0.0.1:8888/static/themes/simple/img/favicon.svg";
+              icon = "http://[::1]:8888/static/themes/simple/img/favicon.svg";
               updateInterval = 24 * 60 * 60 * 1000;
               definedAliases = ["@searx"];
             };

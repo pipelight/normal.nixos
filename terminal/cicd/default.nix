@@ -9,7 +9,9 @@
 in
   with lib;
     mkIf cfg.terminal.cicd.enable {
-      environment.systemPackages = with pkgs; [
+      environment.systemPackages = with pkgs; let
+        system = stdenv.hostPlatform.system;
+      in [
         # CICD
         just
         gnumake
