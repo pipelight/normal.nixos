@@ -30,7 +30,6 @@ with lib;
       redisCreateLocally = true;
       environmentFile = "/var/lib/searx/secret";
       settings = {
-        use_default_settings = true;
         general = {
           debug = true;
           instance_name = "SearXNG";
@@ -44,6 +43,17 @@ with lib;
           public_instance = false;
           limiter = true;
           image_proxy = true;
+          default_http_headers = {
+            X-Content-Type-Options = "nosniff";
+            X-XSS-Protection = "1; mode=block";
+            X-Download-Options = "noopen";
+            X-Robots-Tag = "noindex, nofollow";
+            Referrer-Policy = "no-referrer";
+          };
+        };
+        locales = {
+          en = "English";
+          fr = "French";
         };
         # User interface
         ui = {
@@ -54,12 +64,67 @@ with lib;
         engines =
           lib.mapAttrsToList (name: value: {inherit name;} // value)
           {
-            "yacy images".disabled = true;
-            "duckduckgo".disabled = false;
+            keep_only = {
+              value = [
+                # Text
+                "ddg definitions"
+                "duckduckgo"
+                "wikipedia"
+                "google"
+                "qwant"
+                "mwmbl"
+                # Images
+                "google images"
+                "bing images"
+                # Documentation
+                "arch linux wiki"
+              ];
+            };
+            # Text
+            "ddg definitions" = {
+              weight = 30;
+              disabled = false;
+            };
+            "duckduckgo" = {
+              weight = 30;
+              disabled = false;
+            };
+            "crowdview" = {
+              disabled = false;
+              weight = 10;
+            };
+            "google" = {
+              weight = 5;
+              disabled = false;
+            };
+            "wikipedia".disabled = false;
+            "dictzone".disabled = false;
+            "mwmbl" = {
+              disabled = false;
+              weight = 0.4;
+            };
+            "startpage".disabled = false;
+            "qwant".disabled = true;
             "brave".disabled = true;
-            "bing".disabled = false;
-            "mojeek".disabled = true;
-            "wikibooks".disabled = false;
+
+            # Resources
+            "annas_archives".disabled = false;
+            "nyaa".disabled = false;
+            "1337x".disabled = true;
+
+            # Documentation
+            "arch linux wiki".disabled = false;
+            "github".disabled = false;
+            "fdroid".disabled = false;
+            "arxiv".disabled = false;
+
+            # Images
+            "bing images".disabled = false;
+            "google images".disabled = false;
+
+            # Misc
+            "currency".disabled = false;
+            "pubmed".disabled = false;
           };
         # Search engines settings
         search = {
