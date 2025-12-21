@@ -30,8 +30,8 @@ local ignore_filetypes = {
 local ignore_buftypes = {
   "popup",
   "nofile",
+  "terminal",
   -- "prompt",
-  -- "terminal",
 }
 
 local augroup = vim.api.nvim_create_augroup("FocusDisable", { clear = true })

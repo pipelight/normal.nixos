@@ -225,28 +225,32 @@ Super+g {
     }
   }
   // Expel
-  Ctrl+Shift+m {
+  // Ctrl+Shift+m {
+  Ctrl+Left {
     @press {
       - r#"niri msg action "consume-or-expel-window-left""#
     }
   }
-  Ctrl+Shift+i {
+  // Ctrl+Shift+i {
+  Ctrl+Right {
     @press {
       - r#"niri msg action "expel-window-from-column""#
     }
   }
 
   // Change workspace/desktop
-  Down {
-    @press {
-      - r#"niri msg action "focus-workspace-down""#
-    }
-  }
-  Up {
-    @press {
-      - r#"niri msg action "focus-workspace-up""#
-    }
-  }
+  // Deprecated because repetitive with move-window-down-or-to-workspace-down
+  // Down {
+  //   @press {
+  //     - r#"niri msg action "focus-workspace-down""#
+  //   }
+  // }
+  // Up {
+  //   @press {
+  //     - r#"niri msg action "focus-workspace-up""#
+  //   }
+  // }
+
   Ctrl+Down {
     @press {
       - r#"niri msg action "move-workspace-down""#

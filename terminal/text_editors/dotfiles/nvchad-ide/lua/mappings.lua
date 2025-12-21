@@ -27,21 +27,50 @@ map("n", "<C-m>", "<C-w>h", { desc = "Go to window left" })
 map("n", "<C-n>", "<C-w>j", { desc = "Go to window down" })
 map("n", "<C-e>", "<C-w>k", { desc = "Go to window up" })
 map("n", "<C-i>", "<C-w>l", { desc = "Go to window right" })
-map("n", "<C-x>", "<C-w>x", { desc = "Go swap with next window" })
+--
+-- switch between windows(smart-splits.nvim)
+-- map("n", "<C-m>", require("smart-splits").move_cursor_left)
+-- map("n", "<C-n>", require("smart-splits").move_cursor_down)
+-- map("n", "<C-e>", require("smart-splits").move_cursor_up)
+-- map("n", "<C-i>", require("smart-splits").move_cursor_right)
+
+-- swap(native)
+-- map("n", "<C-x>", "<C-w>x", { desc = "Go swap with next window" })
+--
+-- swap(smart-splits.nvim)
+map("n", "<C-Left>", require("smart-splits").swap_buf_left, { desc = "Swap window left" })
+map("n", "<C-Down>", require("smart-splits").swap_buf_down, { desc = "Swap window down" })
+map("n", "<C-Up>", require("smart-splits").swap_buf_up, { desc = "Swap window up" })
+map("n", "<C-Right>", require("smart-splits").swap_buf_right, { desc = "Swap window right" })
 
 nomap("n", "<C-h>")
 nomap("n", "<C-j>")
 nomap("n", "<C-k>")
 nomap("n", "<C-l>")
 
--- resize
+-- resize(native)
 -- nomap("n", "<leader>m")
 -- map("n", "<leader>m", "10<C-w><", { desc = "Size decrease window width" })
 -- nomap("n", "<leader>i")
 -- map("n", "<leader>i", "10<C-w>>", { desc = "Size increase window width" })
+--
+-- resize(resize.nvim)
+-- map("n", "<C-Left>", "<cmd>lua require('resize').ResizeLeft()<CR>", { desc = "Resize left", silent = true })
+-- map("n", "<C-Right>", "<cmd>lua require('resize').ResizeRight()<CR>", { desc = "Resize right", silent = true })
+-- map("n", "<C-Up>", "<cmd>lua require('resize').ResizeUp()<CR>", { desc = "Resize up", silent = true })
+-- map("n", "<C-Down>", "<cmd>lua require('resize').ResizeDown()<CR>", { desc = "Resize down", silent = true })
+--
+-- resize(smart-splits.nvim)
+-- these keymaps will also accept a range,
+-- for example `10<A-h>` will `resize_left` by `(10 * config.default_amount)`
+map("n", "10<C-S-m>", require("smart-splits").resize_left)
+map("n", "10<C-S-n>", require("smart-splits").resize_down)
+map("n", "10<C-S-e>", require("smart-splits").resize_up)
+map("n", "10<C-S-i>", require("smart-splits").resize_right)
 
--- terminal
+-- disable open terminal shortcut
 nomap("n", "<leader>h")
+-- terminal compat
 map("n", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
 -- fast file browsing

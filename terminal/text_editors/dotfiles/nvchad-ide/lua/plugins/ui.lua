@@ -156,4 +156,15 @@ return {
       return require("focus").setup(require("configs.focus").options)
     end,
   },
+  -- {
+  --   "0xm4n/resize.nvim",
+  --   lazy = false,
+  -- },
+  {
+    "mrjones2014/smart-splits.nvim",
+    lazy = false,
+    opts = {
+      cursor_follows_swapped_bufs = true,
+    },
+  },
 }
