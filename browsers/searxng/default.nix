@@ -36,10 +36,16 @@ with lib;
         };
         # Server configuration
         server = {
-          base_url = "https://deku.lan";
+          # base_url = "https://${config.networking.hostName}.lan";
+          base_url = "http://localhost";
           bind_address = "::1";
           port = 8888;
+
+          # WARNING: setting secret_key here might expose it to the nix cache
+          # see below for the sops or environment file instructions to prevent this
+          # secret_key = "Your secret key.";
           secret_key = config.sops.secrets.searx.path;
+
           public_instance = false;
           limiter = true;
           image_proxy = true;
@@ -151,10 +157,6 @@ with lib;
           # "Open Access DOI rewrite"
           # "Hostnames plugin"
         ];
-        # port = yourPort;
-        # WARNING: setting secret_key here might expose it to the nix cache
-        # see below for the sops or environment file instructions to prevent this
-        # secret_key = "Your secret key.";
       };
     };
   }
