@@ -1,0 +1,9 @@
+# No whitespace after the comma or in your part name!
+config SHIELD_TBKBLU_LEFT
+    def_bool $(shields_list_contains,tbkblu_left)
+    select SHIELD_TBKBLU
+
+# No whitespace after the comma or in your part name!
+config SHIELD_TBKBLU_RIGHT
+    def_bool $(shields_list_contains,tbkblu_right)
+    select SHIELD_TBKBLU
