@@ -3,7 +3,6 @@ id: tbkblu
 name: TBKMiniBlu
 type: shield
 url: https://github.com/manofthebees/tbkmini-zmk-config
-# requires: [seeed_xiao]
 requires: [pro_micro]
 features:
   - keys

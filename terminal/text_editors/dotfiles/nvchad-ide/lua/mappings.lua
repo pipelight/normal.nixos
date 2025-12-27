@@ -63,10 +63,10 @@ nomap("n", "<C-l>")
 -- resize(smart-splits.nvim)
 -- these keymaps will also accept a range,
 -- for example `10<A-h>` will `resize_left` by `(10 * config.default_amount)`
-map("n", "10<C-S-m>", require("smart-splits").resize_left)
-map("n", "10<C-S-n>", require("smart-splits").resize_down)
-map("n", "10<C-S-e>", require("smart-splits").resize_up)
-map("n", "10<C-S-i>", require("smart-splits").resize_right)
+map("n", "<C-S-m>", require("smart-splits").resize_left)
+map("n", "<C-S-n>", require("smart-splits").resize_down)
+map("n", "<C-S-e>", require("smart-splits").resize_up)
+map("n", "<C-S-i>", require("smart-splits").resize_right)
 
 -- disable open terminal shortcut
 nomap("n", "<leader>h")

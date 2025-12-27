@@ -3,43 +3,62 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 
+// TBK Mini 42 keys (3x6+3)
+// Colemak-DH keymap.
+
+/*                        KEY POSITIONS
+
+      ╭────────────────────────╮ ╭────────────────────────╮
+      │  0   1   2   3   4   5 │ │  6   7   8   9  10  11 │
+      │ 12  13  14  15  16  17 │ │ 18  19  20  21  22  23 │
+      │ 24  25  26  27  28  29 │ │ 30  31  32  33  34  35 │
+      ╰───────────╮ 36  37  38 │ │ 39  40  41 ╭───────────╯
+                  ╰────────────╯ ╰────────────╯        
+*/
+
+#define DEFAULT 0
+#define LAYER_1 1
+#define LAYER_2 2
+#define LAYER_3 3
+
 / {
         keymap {
             compatible = "zmk,keymap";
 
-            default_layer {
+            layer_default {
 // -----------------------------------------------------------------------------------------------------------------------------                
-// | `/~  |  q   |  w   |  e   |  r   |  t   |                  |  y   |  u   |  i   |  o   |  p   | -/_  |   
-// | tab  |  a   |  s   |  d   |  f   |  g   |                  |  h   |  j   |  k   |  l   | ;|:  | '/"  |   
-// |  fnn |  z   |  x   |  c   |  v   |  b   |                  |  n   |  m   |  </, | >/.  | ?//  |  fnb |
+// | esc   |  q   |  w   |  f   |  p   |  b   |                  |  j   |  l   |  u   |  y   | ;|:  | backspace  |   
+// | shift |  a   |  r   |  s   |  t   |  g   |                  |  m   |  n   |  e   |  i   |  o   | '/"        |   
+// | tab   |  x   |  c   |  d   |  v   |  z   |                  |  n   |  m   |  </, | >/.  | ?//  |  fnb       |
 //                                     
 //                     | shift | space | ctrl |                 | esc  | ent | bksp | 
             bindings = <
-    &kp GRAVE &kp Q &kp W &kp E &kp R &kp T                               &kp Y &kp U &kp I      &kp O    &kp  P    &kp MINUS
-    &kp TAB   &kp A &kp S &kp D &kp F &kp G                               &kp H &kp J &kp K      &kp L    &kp SEMI  &kp SQT
-    &mo 1     &kp Z &kp X &kp C &kp V &kp B                               &kp N &kp M &kp COMMA  &kp DOT  &kp FSLH  &mo 2
+    &kp ESC      &kp Q &kp W &kp F &kp P &kp B                &kp J &kp L &kp U      &kp Y    &kp SEMI    &kp BSPC
+    &kp LSHIFT   &kp A &kp R &kp S &kp T &kp G                &kp M &kp N &kp E      &kp I    &kp O       &kp LSHIFT
+    &kp TAB      &kp X &kp C &kp D &kp V &kp Z                &kp H &kp K &kp COMMA  &kp DOT  &kp FSLH    &mo ENTER
                    
-                          &kp LSHIFT &kp SPACE &kp LCTRL        &kp ESC &kp RET &kp BSPC  
-                        >;
+                          &mo LAYER_2 &kp LCTRL &kp SUPER        &kp ALT &kp SPACE &mod LAYER_1
+            >;
+
             };
 
-            layer_zero {
+            layer_1 {
 // -----------------------------------------------------------------------------------------------------------------------------
-// | ___  | 1 !  |  2 @ | 3 #  | 4 $  | 5 $  |                         |  6 ^ | 7 &  | 8 *  | 9 (  |  0 ) | + = |         
+// | `/~  | !    | @    |  #   |   $  |  %   |                         |  6 ^ | 7 &  | 8 *  | 9 (  |  0 ) | + = |         
 // | volM | ___  |  ___ |  ___ | ___  | ___  |                         |  <   |  ^   |   v  |  >   | ___  | \ | |   
 // | ___  | pre  |  paus|  nxt | volU | volD |                         | ___  | ___  |  [   |  ]   |  {   |  }  |
 //                                     
 //                             | shift | ___ | ___ |             | del | ___ | ___ | 
             bindings = <
-    &trans &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                                        &kp N6    &kp N7      &kp N8      &kp N9     &kp N0   &kp EQUAL
-    &kp C_MUTE &trans &trans &trans &trans &trans                                    &kp LEFT  &kp UP      &kp DOWN    &kp RIGHT  &trans   &kp BSLH
+    &kp GRAVE  &kp EXCL &kp AT           &kp HASH             &kp DOLLAR      &kp PERCENT         &kp N6  &kp N7  &kp N8  &kp N9  &kp N0   &trans
+    &kp LSHIFT &trans   &kp LEFT_BRACKET &kp LEFT_PARENTHESIS &kp LEFT_BRACE  &trans              &kp LEFT  &kp UP      &kp DOWN    &kp RIGHT  &trans   &kp BSLH
     &trans &kp C_PREV &kp C_PP &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN                  &trans    &trans      &kp LBKT    &kp RBKT   &kp LBRC &kp RBRC
                    
-                          &kp LSHIFT &trans &trans                                   &kp DEL &trans &trans              
+                          &kp LALT &kp LCTRL &kp SUPER        &kp ALT &kp SPACE &trans
                         >;
             };
 
-             layer_one {
+             layer_2 {
 // -----------------------------------------------------------------------------------------------------------------------------
 // | ___ | ___ | ___ | ___ | ___ | ___ |                     | ___ | ___ | ___ | ___ | ___ | ___ |   
 // | ___ | ___ | ___ | ___ | ___ | BTC |                     | ___ | bt1 | bt2 | bt3 | bt4 | ___ |   
@@ -49,6 +68,22 @@
             bindings = <
     &trans &trans &trans &trans &trans &trans                       &trans &trans &trans &trans &trans &trans  
     &trans &trans &trans &trans &trans &bt BT_CLR                   &trans &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &trans 
+    &trans &trans &trans &trans &trans &trans                       &trans &trans &trans &trans &trans &trans
+                   
+                          &kp LALT &kp LCTRL &kp SUPER        &kp ALT &kp SPACE &trans
+                        >;
+            };
+
+             layer_fn {
+// -----------------------------------------------------------------------------------------------------------------------------
+// | ___ | ___ | ___ | ___ | ___ | ___ |                     | ___ | ___ | ___ | ___ | ___ | ___ |   
+// | ___ | ___ | ___ | ___ | ___ | BTC |                     | ___ | bt1 | bt2 | bt3 | bt4 | ___ |   
+// | ___ | ___ | ___ | ___ | ___ | ___ |                     | ___ | ___ | ___ | ___ | ___ | ___ |
+//                                                 
+//                   | ___ | ___ | ___ |                     | ___ | ___ | ___ | 
+            bindings = <
+    &trans &kp F1 &kp F2 &kp F3 &kp F4     &kp F5                       &kp F6  &kp F7       &kp F8 &kp F9 &kp F10 &kp DELETE
+    &trans &trans &trans &trans &bt BT_CLR &kp F11                      &kp F12 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &trans 
     &trans &trans &trans &trans &trans &trans                       &trans &trans &trans &trans &trans &trans
                    
                   &trans &trans &trans                       &trans &trans &trans             

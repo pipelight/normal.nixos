@@ -65,6 +65,9 @@
         ./flake.nix
         ./default.nix
 
+        # A standalone flake
+        ./keyboard/zmk_config
+
         # package derivations (imported by other means)
         ./window_managers/niri/niri.latest.nix
       ];

@@ -6,7 +6,7 @@ layers:
   Base:
     # Rows
     - [Esc, Q, W, F, P, B, J, L, U, Y, { t: ;, h: ":" }, BSpace]
-    - [Shift, A, R, S, T, G, M, N, E, I, O, Shift]
+    - [LShift, A, R, S, T, G, M, N, E, I, O, LShift]
     - [
         T,
         X,
@@ -24,37 +24,77 @@ layers:
 
     # Thumb L
     - MO(2)
-    - Ctrl
-    - Super
+    - LCtrl
+    - LSuper
     # Thumb R
-    - Alt
+    - LAlt
     - Space
     - MO(1)
 
-  MO(1) Numbers and Arrows:
+  MO(1) Numbers and Arrows + Symbols:
     # Rows
-    - [{ t: Quit, h: Esc }, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, Null]
-    - [Shift, A, R, S, T, G, M, N, E, I, O, Shift]
-    - [T, X, C, D, V, Z, K, H, ",", ".", "/", Enter]
+    - ["`|~", "!", "@", "#", "$", "%", 6, 7, 8, 9, 0, Null]
+    - [
+        LShift,
+        Null,
+        "[",
+        "(",
+        "{",
+        "\\'\"",
+        Left,
+        Down,
+        Up,
+        Right,
+        Null,
+        LShift,
+      ]
+    - [TO(3), Null, Null, Null, Null, Null, Null, PgDn, PgUp, Null, Null, Null]
     # Thumb L
-    - Null
-    - Null
-    - Super
+    - LAlt
+    - LCtrl
+    - LSuper
     # Thumb R
-    - Null
-    - Null
-    - Null
-
-  MO(2) Symbols:
-    # Rows
-    - [{ t: Quit, h: Esc }, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, Null]
-    - [Shift, A, R, S, T, G, M, N, E, I, O, Shift]
-    - [T, X, C, D, V, Z, K, H, ",", ".", "/", Enter]
-    # Thumb L
-    - Null
-    - Null
-    - Super
-    # Thumb R
-    - Alt
+    - LAlt
     - Space
     - Null
+
+  MO(2) Numbers and Arrows + Symbols (Mirror):
+    # Rows
+    - [Null, 1, 2, 3, 4, 5, "^", "&", "*", "- | _", ";|:", Null]
+    - [LShift, Null, R, S, T, G, M, N, E, I, Null, Shift]
+    - [
+        TO(3),
+        Null,
+        Null,
+        "\\|\\|",
+        "=",
+        Null,
+        "+",
+        "_",
+        ",| >",
+        ".|<",
+        "/|?",
+        Null,
+      ]
+    # Thumb L
+    - LAlt
+    - LCtrl
+    - LSuper
+    # Thumb R
+    - LAlt
+    - Space
+    - Null
+
+  MO(3) Fn:
+    # Rows
+    - [TO(0), F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, Del]
+    - [Null, Null, Null, Null, Null, F11, F12, Null, Null, Null, Null, Null]
+    - [Null, Null, Null, Null, Null, Reset, Reset, Null, Null, Null, Null, Null]
+    # Thumb L
+    - TO(0)
+    - LCtrl
+    - LSuper
+    # Thumb R
+    - LAlt
+    - Null
+    - TO(0)
