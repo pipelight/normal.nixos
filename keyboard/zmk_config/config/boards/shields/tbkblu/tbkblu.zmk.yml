@@ -2,10 +2,11 @@ file_format: "1"
 id: tbkblu
 name: TBKMiniBlu
 type: shield
-url: https://github.com/manofthebees/tbkmini-zmk-config
+url: https://github.com/Bastardkb/TBK-Mini
 requires: [pro_micro]
 features:
   - keys
+  - studio
 siblings:
   - tbkblu_left
   - tbkblu_right

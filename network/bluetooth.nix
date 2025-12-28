@@ -16,11 +16,11 @@ with lib;
       settings = {
         General = {
           Enable = "Source,Sink,Media,Socket";
-          ControllerMode = "bredr";
+          # ControllerMode = "bredr";
           # ControllerMode = "dual";
           FastConnectable = true;
           Experimental = true;
-          KernelExperimental = false;
+          # KernelExperimental = false;
         };
         Policy = {
           AutoEnable = true;

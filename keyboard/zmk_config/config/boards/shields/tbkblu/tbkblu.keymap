@@ -1,6 +1,10 @@
+// See zmk docs for keymap lists... and PRETTY GOOD in depth explanations.
+// https://zmk.dev/docs
+
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/ext_power.h>
 
 // TBK Mini 42 keys (3x6+3)
@@ -16,16 +20,23 @@
                   ╰────────────╯ ╰────────────╯        
 */
 
-#define DEFAULT 0
+#define LAYER_DEFAULT 0
 #define LAYER_1 1
 #define LAYER_2 2
-#define LAYER_3 3
+#define LAYER_FN 3
+
+#define BT0 BT_SEL 0
+#define BT1 BT_SEL 1
+#define BT2 BT_SEL 2
+#define BT3 BT_SEL 3
+#define BT4 BT_SEL 4
+#define BT5 BT_SEL 5
 
 / {
         keymap {
             compatible = "zmk,keymap";
 
-            layer_default {
+            default_layer {
 // -----------------------------------------------------------------------------------------------------------------------------                
 // | esc   |  q   |  w   |  f   |  p   |  b   |                  |  j   |  l   |  u   |  y   | ;|:  | backspace  |   
 // | shift |  a   |  r   |  s   |  t   |  g   |                  |  m   |  n   |  e   |  i   |  o   | '/"        |   
@@ -35,9 +46,9 @@
             bindings = <
     &kp ESC      &kp Q &kp W &kp F &kp P &kp B                &kp J &kp L &kp U      &kp Y    &kp SEMI    &kp BSPC
     &kp LSHIFT   &kp A &kp R &kp S &kp T &kp G                &kp M &kp N &kp E      &kp I    &kp O       &kp LSHIFT
-    &kp TAB      &kp X &kp C &kp D &kp V &kp Z                &kp H &kp K &kp COMMA  &kp DOT  &kp FSLH    &mo ENTER
+    &kp TAB      &kp X &kp C &kp D &kp V &kp Z                &kp H &kp K &kp COMMA  &kp DOT  &kp FSLH    &kp RETURN
                    
-                          &mo LAYER_2 &kp LCTRL &kp SUPER        &kp ALT &kp SPACE &mod LAYER_1
+                    &mo LAYER_2 &kp LCTRL &kp LMETA       &kp LALT &kp SPACE &mo LAYER_1
             >;
 
             };
@@ -50,11 +61,11 @@
 //                                     
 //                             | shift | ___ | ___ |             | del | ___ | ___ | 
             bindings = <
-    &kp GRAVE  &kp EXCL &kp AT           &kp HASH             &kp DOLLAR      &kp PERCENT         &kp N6  &kp N7  &kp N8  &kp N9  &kp N0   &trans
-    &kp LSHIFT &trans   &kp LEFT_BRACKET &kp LEFT_PARENTHESIS &kp LEFT_BRACE  &trans              &kp LEFT  &kp UP      &kp DOWN    &kp RIGHT  &trans   &kp BSLH
-    &trans &kp C_PREV &kp C_PP &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN                  &trans    &trans      &kp LBKT    &kp RBKT   &kp LBRC &kp RBRC
+    &kp GRAVE  &kp EXCL &kp AT  &kp HASH  &kp DOLLAR  &kp PERCENT                        &kp N6  &kp N7  &kp N8  &kp N9  &kp N0 &none
+    &kp LSHIFT &none &kp LEFT_BRACKET &kp LEFT_PARENTHESIS &kp LEFT_BRACE &kp SQT        &kp LEFT  &kp UP  &kp DOWN  &kp RIGHT  &none &kp BSLH
+    &tog LAYER_FN &kp C_PREV &kp C_PP &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN               &none  &none  &kp LBKT  &kp RBKT  &kp LBRC &kp RBRC
                    
-                          &kp LALT &kp LCTRL &kp SUPER        &kp ALT &kp SPACE &trans
+                          &kp LALT &kp LCTRL &kp LMETA       &kp LALT &kp SPACE &none
                         >;
             };
 
@@ -66,15 +77,15 @@
 //                                                 
 //                   | ___ | ___ | ___ |                     | ___ | ___ | ___ | 
             bindings = <
-    &trans &trans &trans &trans &trans &trans                       &trans &trans &trans &trans &trans &trans  
-    &trans &trans &trans &trans &trans &bt BT_CLR                   &trans &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &trans 
-    &trans &trans &trans &trans &trans &trans                       &trans &trans &trans &trans &trans &trans
+    &none &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                   &kp AMPS &none &none &none &none &none
+    &none &none &none &none &none &bt BT_CLR                   &none &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none 
+    &tog LAYER_FN &none &none &none &none &none                &none &none &none &none &none &none
                    
-                          &kp LALT &kp LCTRL &kp SUPER        &kp ALT &kp SPACE &trans
+                          &kp LALT &kp LCTRL &kp LMETA        &kp LALT &kp SPACE &none
                         >;
             };
 
-             layer_fn {
+             fn_layer {
 // -----------------------------------------------------------------------------------------------------------------------------
 // | ___ | ___ | ___ | ___ | ___ | ___ |                     | ___ | ___ | ___ | ___ | ___ | ___ |   
 // | ___ | ___ | ___ | ___ | ___ | BTC |                     | ___ | bt1 | bt2 | bt3 | bt4 | ___ |   
@@ -82,11 +93,11 @@
 //                                                 
 //                   | ___ | ___ | ___ |                     | ___ | ___ | ___ | 
             bindings = <
-    &trans &kp F1 &kp F2 &kp F3 &kp F4     &kp F5                       &kp F6  &kp F7       &kp F8 &kp F9 &kp F10 &kp DELETE
-    &trans &trans &trans &trans &bt BT_CLR &kp F11                      &kp F12 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &trans 
-    &trans &trans &trans &trans &trans &trans                       &trans &trans &trans &trans &trans &trans
+    &tog LAYER_DEFAULT &kp F1 &kp F2 &kp F3 &kp F4 &kp F5           &kp F6  &kp F7 &kp F8 &kp F9 &kp F10 &kp DELETE
+    &bt BT_CLR &bt BT0 &bt BT1 &bt BT2 &none &kp F11                &kp F12 &none &none &none &none &none
+    &sys_reset &bootloader &studio_unlock &none &none &none         &bt BT0 &bt BT1 &bt BT2 &bt BT3 &bt BT4 &bt BT5
                    
-                  &trans &trans &trans                       &trans &trans &trans             
+                          &none &none &none                       &none &none &none             
                         >;
             };
         };
