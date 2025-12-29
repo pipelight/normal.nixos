@@ -16,11 +16,9 @@ with lib;
       settings = {
         General = {
           Enable = "Source,Sink,Media,Socket";
-          # ControllerMode = "bredr";
-          # ControllerMode = "dual";
+          ControllerMode = "dual"; # "bre/rd", "le", or "dual"
           FastConnectable = true;
           Experimental = true;
-          # KernelExperimental = false;
         };
         Policy = {
           AutoEnable = true;

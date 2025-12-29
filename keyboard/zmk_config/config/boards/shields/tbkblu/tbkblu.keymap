@@ -46,7 +46,7 @@
             bindings = <
     &kp ESC      &kp Q &kp W &kp F &kp P &kp B                &kp J &kp L &kp U      &kp Y    &kp SEMI    &kp BSPC
     &kp LSHIFT   &kp A &kp R &kp S &kp T &kp G                &kp M &kp N &kp E      &kp I    &kp O       &kp LSHIFT
-    &kp TAB      &kp X &kp C &kp D &kp V &kp Z                &kp H &kp K &kp COMMA  &kp DOT  &kp FSLH    &kp RETURN
+    &kp TAB      &kp X &kp C &kp D &kp V &kp Z                &kp K &kp H &kp COMMA  &kp DOT  &kp FSLH    &kp RETURN
                    
                     &mo LAYER_2 &kp LCTRL &kp LMETA       &kp LALT &kp SPACE &mo LAYER_1
             >;
@@ -62,8 +62,8 @@
 //                             | shift | ___ | ___ |             | del | ___ | ___ | 
             bindings = <
     &kp GRAVE  &kp EXCL &kp AT  &kp HASH  &kp DOLLAR  &kp PERCENT                        &kp N6  &kp N7  &kp N8  &kp N9  &kp N0 &none
-    &kp LSHIFT &none &kp LEFT_BRACKET &kp LEFT_PARENTHESIS &kp LEFT_BRACE &kp SQT        &kp LEFT  &kp UP  &kp DOWN  &kp RIGHT  &none &kp BSLH
-    &tog LAYER_FN &kp C_PREV &kp C_PP &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN               &none  &none  &kp LBKT  &kp RBKT  &kp LBRC &kp RBRC
+    &kp LSHIFT &none &kp LEFT_BRACKET &kp LEFT_PARENTHESIS &kp LEFT_BRACE &kp SQT        &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &none &kp BSLH
+    &tog LAYER_FN &kp C_PREV &kp C_PP &kp C_NEXT &kp C_VOL_UP &kp C_VOL_DN               &none  &kp PAGE_DOWN  &kp PAGE_UP  &none  &none &none
                    
                           &kp LALT &kp LCTRL &kp LMETA       &kp LALT &kp SPACE &none
                         >;
@@ -77,9 +77,9 @@
 //                                                 
 //                   | ___ | ___ | ___ |                     | ___ | ___ | ___ | 
             bindings = <
-    &none &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                   &kp AMPS &none &none &none &none &none
-    &none &none &none &none &none &bt BT_CLR                   &none &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none 
-    &tog LAYER_FN &none &none &none &none &none                &none &none &none &none &none &none
+    &none &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                        &kp CARET &kp AMPS &kp ASTRK &kp MINUS &kp SEMICOLON &none
+    &none &none &kp LEFT &kp UP &kp DOWN &kp RIGHT                  &kp SQT &kp RIGHT_BRACE &kp RIGHT_PARENTHESIS &kp RIGHT_BRACKET &none &kp LSHIFT
+    &tog LAYER_FN &none &none &kp BACKSLASH &kp EQUAL &none         &kp PLUS &kp UNDERSCORE &kp COMMA &kp DOT &kp FSLH  &none
                    
                           &kp LALT &kp LCTRL &kp LMETA        &kp LALT &kp SPACE &none
                         >;
@@ -93,11 +93,11 @@
 //                                                 
 //                   | ___ | ___ | ___ |                     | ___ | ___ | ___ | 
             bindings = <
-    &tog LAYER_DEFAULT &kp F1 &kp F2 &kp F3 &kp F4 &kp F5           &kp F6  &kp F7 &kp F8 &kp F9 &kp F10 &kp DELETE
-    &bt BT_CLR &bt BT0 &bt BT1 &bt BT2 &none &kp F11                &kp F12 &none &none &none &none &none
-    &sys_reset &bootloader &studio_unlock &none &none &none         &bt BT0 &bt BT1 &bt BT2 &bt BT3 &bt BT4 &bt BT5
+    &tog LAYER_DEFAULT &kp F1 &kp F2 &kp F3 &kp F4 &kp F5                   &kp F6  &kp F7 &kp F8 &kp F9 &kp F10 &kp DELETE
+    &bt BT0 &bt BT1 &bt BT2 &none &none &kp F11                             &kp F12 &none &none &bt BT3 &bt BT4 &bt BT5
+    &bootloader &sys_reset &studio_unlock &bt BT_CLR &none &none            &none &none &none &none &sys_reset &bootloader
                    
-                          &none &none &none                       &none &none &none             
+                          &tog LAYER_DEFAULT &kp LCTRL &kp LMETA        &kp LALT &none &tog LAYER_DEFAULT             
                         >;
             };
         };
