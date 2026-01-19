@@ -29,9 +29,10 @@ with lib;
         # following for the 3150
         epson-escpr
         #or
-        # epson-escpr2
-        cups-filters
-        cups-browsed
+        epson-escpr2
+
+        # cups-filters
+        # cups-browsed
       ];
     };
     services.avahi = {
@@ -41,8 +42,9 @@ with lib;
     };
     ## Scanners
     # Enable SANE to handle scanners
-    hardware.sane.enable = true;
-    # hardware.sane.extraBackends = [pkgs.epkowa];
+    ## Temporally removed/silenced because of anoying unreachable server during update.
+    hardware.sane.enable = false;
+    hardware.sane.extraBackends = [pkgs.epkowa];
     # Epson support
     users.groups = let
       e = config.normal.users;

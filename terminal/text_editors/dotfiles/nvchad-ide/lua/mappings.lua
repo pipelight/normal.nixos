@@ -12,11 +12,11 @@ map("ca", "help", "vert help", {
 
 -- NvChad specific
 --
-map("n", "<leader>?", "<cmd>NvCheatsheet<CR>", { desc = "toggle nvcheatsheet" })
+map("n", "<leader>?", "<cmd> NvCheatsheet <cr>", { desc = "toggle nvcheatsheet" })
 
 -- File
 --
-map("n", "<C-q>", "<cmd> q <CR>", { desc = "File quit if saved" })
+map("n", "<C-q>", "<cmd> q <cr>", { desc = "File quit if saved" })
 -- map("n", "<C-q>", "<cmd> qa <CR>", { desc = "File quit if saved" })
 
 -- Motions
@@ -136,11 +136,10 @@ map("n", "gi", lsp.buf.implementation, { desc = "LSP go to implementation" })
 map("n", "gu", lsp.buf.code_action, { desc = "LSP go to code action" })
 
 -- Next/Prev Error
--- map("n", "ge", "<cmd>lua vim.diagnostic.goto_next()<CR>zz", { desc = "LSP go to next diagnostic" })
 map(
   "n",
   "ge",
-  "<cmd>lua vim.diagnostic.goto_next()<cr> \
+  "<cmd>lua vim.diagnostic.jump({ count=1, severity=vim.diagnostic.severity.ERROR })<cr> \
   <cmd>call smoothie#do('z.')<cr>",
   { desc = "LSP go to next diagnostic" }
 )
@@ -148,7 +147,7 @@ map(
 map(
   "n",
   "gE",
-  "<cmd>lua vim.diagnostic.goto_prev()<cr> \
+  "<cmd>lua vim.diagnostic.jump({ count=-1, severity=vim.diagnostic.severity.ERROR })<cr> \
   <cmd>call smoothie#do('z.')<cr>",
   { desc = "LSP go to prev diagnostic" }
 )
@@ -180,9 +179,14 @@ map("n", "<C-f>", "<cmd>Telescope live_grep<cr>", { desc = "Telescope live grep"
 map("n", "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>", { desc = "Telescope find files" })
 nomap("n", "<leader>e")
 
+-- Go to
+--
+map("n", "<leader>td", "<cmd>silent grep TODO <bar> copen <cr>", { desc = "Open TODO list" })
+map("n", "<leader>tx", "<cmd>silent grep FIX <bar> copen <cr>", { desc = "Open bug list" })
+
 -- Test suite
 --
-map("n", "<leader>tt", ":<c-u>TestFile<cr>", { desc = "Test launch nearest test suite" })
+map("n", "<leader>tt", "<cmd>TestFile<cr>", { desc = "Test launch nearest test suite" })
 
 -- Editors modules
 --
@@ -203,3 +207,23 @@ map("n", "<leader>gg", function()
     vim.cmd.DiffviewOpen()
   end
 end, { desc = "Mod editor open git diffview" })
+
+-- QuickFix List window specific mappings.
+--
+-- vim.api.nvim_create_autocmd("BufWinEnter", {
+--   desc = "QuickFix List specific mappings",
+--   callback = function(params)
+--     if vim.b[bufnr].buftype ~= "quickfix" then
+--       map(
+--         "n",
+--         "<CR>",
+--         -- Hit `Enter` Open a vertical split to the file under cursor.
+--         "<cmd> :vsp <bar> :.cc <cr>",
+--         {
+--           desc = "Open the file under cursor in parent buffer",
+--         }
+--       )
+--       return
+--     end
+--   end,
+-- })

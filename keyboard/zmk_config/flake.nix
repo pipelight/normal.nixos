@@ -28,7 +28,7 @@
         # For usb debugging purpose (check keys layout conformity...)
         # extraWestBuildFlags = ["--snippet" "zmk-usb-logging"];
 
-        zephyrDepsHash = "sha256-QYwf9HpRmnKf2fJ8BauefEvZ0ms2bYVPbZ0REU0bces=";
+        zephyrDepsHash = "sha256-/J4KOCKOZQV2oqoy6I3Bzq19OC123K4Y/baKU1M/i6s=";
 
         meta = {
           description = "ZMK firmware";

@@ -40,6 +40,15 @@ with lib;
             # tranquility
             # rust-search-extension
           ];
+          force = true;
+        };
+
+        defaultSettings = {
+          # Enable extensions.
+          "extensions.autoDisableScopes" = 0;
+          "browser.tabs.firefox-view" = false;
+          "browser.firefox-view.virtual-list.enabled" = false;
+          "services.sync.prefs.sync.browser.firefox-view.feature-tour" = false;
         };
 
         # Get every susbsection number
@@ -175,6 +184,7 @@ with lib;
           userChrome = builtins.readFile dotfiles/userChrome.css;
           isDefault = true;
           id = 0;
+          settings = {} // defaultSettings;
         };
         i2p = {
           inherit extensions;
@@ -183,15 +193,19 @@ with lib;
           userChrome = builtins.readFile dotfiles/userChrome_alt.css;
           isDefault = false;
           id = 1;
-          settings = {
-            "dom.security.https_only_mode" = lib.mkForce false;
-            "media.peerconnection.ice.proxy_only" = true;
-            "network.proxy.type" = 1;
-            "network.proxy.http" = "127.0.0.1";
-            "network.proxy.http_port" = 4444;
-            "network.proxy.ssl" = "127.0.0.1";
-            "network.proxy.ssl_port" = 4444;
-          };
+          settings =
+            {
+              "dom.security.https_only_mode" = lib.mkForce false;
+              "media.peerconnection.ice.proxy_only" = true;
+              "network.proxy.type" = 1;
+              "network.proxy.http" = "127.0.0.1";
+              "network.proxy.http_port" = 4444;
+              "network.proxy.ssl" = "127.0.0.1";
+              "network.proxy.ssl_port" = 4444;
+              # Enable extensions.
+              "extensions.autoDisableScopes" = 0;
+            }
+            // defaultSettings;
         };
         normy = {
           inherit extensions;
@@ -199,6 +213,7 @@ with lib;
           userChrome = builtins.readFile dotfiles/userChrome_normy.css;
           isDefault = false;
           id = 2;
+          settings = {} // defaultSettings;
         };
       };
     };

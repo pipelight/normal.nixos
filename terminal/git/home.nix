@@ -11,11 +11,6 @@ with lib;
       ".config/git/conventional_commit_message".source = ./dotfiles/conventional_commit_message;
     };
 
-    home.packages = with pkgs; [
-      ## Git repos manager (ghq)
-      siketyan-ghr
-    ];
-
     programs = {
       # Versionning
 

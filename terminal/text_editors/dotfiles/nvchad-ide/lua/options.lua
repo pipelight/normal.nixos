@@ -37,3 +37,7 @@ vim.cmd "au BufNewFile,BufRead *.pug		setf pug"
 -- Caddy webserver
 vim.cmd "au BufNewFile,BufRead *.caddyfile		setf caddy"
 vim.cmd "au BufNewFile,BufRead *.Caddyfile		setf caddy"
+
+-- Ripgrep
+-- fix: ignore hidden files
+vim.o.grepprg = "rg --vimgrep --no-hidden --no-heading"

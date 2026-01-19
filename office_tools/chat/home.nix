@@ -22,7 +22,7 @@ with lib;
 
       # A terminal based chat application plugable with
       # ircd and darkirc
-      weechat
+      # weechat
 
       # Social network
       # tuba
